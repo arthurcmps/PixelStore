@@ -1,265 +1,348 @@
-/* Reset básico */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* BACKGROUND */
-body {
-    background: #131313; /* Cor de fundo padrão */
-    overflow-x: hidden; /* Impede a barra de rolagem horizontal */
-}
-
-/* Estilizando a logo */
-.logo {
-    width: 70px; /* Dimensão da logo */
-    height: 70px; /* Mantém proporção circular */
-    border-radius: 50%; /* Deixa a imagem redonda */
-    object-fit: cover; /* Garante que a imagem se ajuste ao contorno */
-    margin: 0 30px; /* Espaçamento entre logo e menu */
-    float: left; /* Faz com que a logo fique à esquerda do menu */
-}
-
 /*MENU*/
 
 .menu {
-    width: 100%;
-    background-color: #131313;
-    padding: 10px 0;
-    overflow: hidden;
-    position: relative;
-    border-bottom: 2px solid white; /* Linha branca fixa */
+  width: 100%;
+  background-color: #131313;
+  padding: 10px 0;
+  overflow: hidden;
+  position: relative;
+  border-bottom: 2px solid white; /* Linha branca fixa */
 }
 
 .menu ul {
-    list-style-type: none;
-    display: flex;
-    justify-content: flex-start; /* Alinha os itens do menu ao início */
-    padding: 0; /* Remove o padding */
+  list-style-type: none;
+  display: flex;
+  justify-content: flex-start; /* Alinha os itens do menu ao início */
+  padding: 0; /* Remove o padding */
 }
 
 .menu ul li {
-    padding: 10px 15px; /* Ajuste o padding conforme necessário */
+  padding: 10px 15px; /* Ajuste o padding conforme necessário */
 }
 
 .menu ul li a {
-    display: block;
-    padding: 10px 20px;
-    text-decoration: none;
-    color: #ffffff; /* Cor do texto */
-    font-size: 20px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    font-family: 'Lucida Sans', sans-serif;
+  display: block;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #ffffff; /* Cor do texto */
+  font-size: 20px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: 'Lucida Sans', sans-serif;
 }
 
 /* Animação de mudança de cor */
 @keyframes rgb-hover {
-    0% { color: rgb(255, 0, 0); }
-    20% { color: rgb(255, 127, 0); }
-    40% { color: rgb(255, 255, 0); }
-    60% { color: rgb(0, 255, 0); }
-    80% { color: rgb(0, 0, 255); }
-    100% { color: rgb(255, 0, 255); }
+  0% { color: rgb(255, 0, 0); }
+  20% { color: rgb(255, 127, 0); }
+  40% { color: rgb(255, 255, 0); }
+  60% { color: rgb(0, 255, 0); }
+  80% { color: rgb(0, 0, 255); }
+  100% { color: rgb(255, 0, 255); }
 }
 
 .menu ul li a:hover {
-    background-color: rgb(32, 32, 32); /* Cor de fundo no hover */
-    color: rgb(255, 255, 255); /* Cor do texto no hover */
-    animation: rgb-hover 1s infinite; /* Animação no hover */
-    text-shadow: 0 0 5px rgb(255, 0, 0), 0 0 10px rgb(0, 255, 0), 0 0 15px rgb(0, 0, 255); /* Sombra de texto RGB */
+  background-color: rgb(32, 32, 32); /* Cor de fundo no hover */
+  color: rgb(255, 255, 255); /* Cor do texto no hover */
+  animation: rgb-hover 1s infinite; /* Animação no hover */
+  text-shadow: 0 0 5px rgb(255, 0, 0), 0 0 10px rgb(0, 255, 0), 0 0 15px rgb(0, 0, 255); /* Sombra de texto RGB */
 }
 
 /* Linha animada opcional */
 .menu::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 2px; /* Espessura da linha */
-    background-color: white;
-    animation: slide 3s infinite ease-in-out; /* Animação da linha */
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px; /* Espessura da linha */
+  background-color: white;
+  animation: slide 3s infinite ease-in-out; /* Animação da linha */
 }
 
 @keyframes slide {
-    0% {
-        transform: translateX(-100%);
-    }
-    50% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(100%);
-    }
+  0% {
+      transform: translateX(-100%);
+  }
+  50% {
+      transform: translateX(0);
+  }
+  100% {
+      transform: translateX(100%);
+  }
 }
 
-/* Botão de Login */
-.login-button {
-    background-color: #090dec;
-    color: #ffffff;
-    border: none;
-    padding: 15px 20px;
-    border-radius: 105px;
-    cursor: pointer;
-    font-size: 16px;
-    position: absolute;
-    right: 20px; /* Espaçamento ajustado para o botão de login */
-    top: 20px; /* Mantém o espaçamento no topo */
+/* Animação de mudança de cor */
+@keyframes changeColorMenu {
+  0% {
+      background: linear-gradient(90deg, red, orange, yellow, green, blue, purple);
+  }
+  50% {
+      background: linear-gradient(90deg, purple, blue, green, yellow, orange, red);
+  }
+  100% {
+      background: linear-gradient(90deg, red, orange, yellow, green, blue, purple);
+  }
 }
 
-.login-button:hover {
-    background-color: #f55c04;
+/* geral */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Helvetica, sans-serif;
+  color: #000000;
+  border: none;
 }
 
-/* Botão de Carrinho */
-.cart-button {
-    background-color: transparent; /* Fundo transparente */
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    position: absolute;
-    right: 110px; /* Espaçamento ajustado para o botão de carrinho */
-    top: 20px;
+input, label {
+  display: block;
+  outline: none;
+  width: 100%;
 }
 
-.cart-button img {
-    width: 40px; /* Tamanho do ícone do carrinho */
-    height: 30px; /* Tamanho do ícone do carrinho */
+a {
+  color: #E60084;
 }
 
-.cart-button:hover img {
-    filter: brightness(0.8); /* Efeito de escurecimento ao passar o mouse */
+body {
+  background-image: url('../img/bg-register-page.jpg');
+  background-size: cover;
+  background-position-y: -150px;
 }
 
-/* TÍTULO */
-@keyframes rgb-colors {
-    20% { color: rgb(255, 0, 0); }
-    10% { color: rgb(0, 247, 0); }
-    66% { color: rgb(255, 0, 221); }
-    100% { color: rgb(255, 174, 0); }
+/* form */
+#main-container {
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 25px;
 }
 
-/* Estilos da seção "Esqueceu a senha" */
-main {
-    max-width: 800px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(2, 175, 2, 0.1);
-}
-
-h1 {
-    font-size: 28px;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-p {
-    font-size: 16px;
-    margin-bottom: 20px;
-    text-align: center;
+#main-container h1 {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 1.6rem;
 }
 
 form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.full-box {
+  flex: 1 1 100%;
+  position: relative;
+}
+
+.half-box {
+  flex: 1 1 45%;
+  position: relative;
+}
+
+.spacing {
+  margin-right: 2.5%;
 }
 
 label {
-    font-size: 18px;
-    margin-bottom: 10px;
+  font-weight: bold;
+  font-size: .8rem;
 }
 
-input[type="email"],
+input {
+  border-bottom: 2px solid #323232;
+  padding: 10px;
+  font-size: .9rem;
+  margin-bottom: 40px;
+}
+
+input:focus {
+  border-color: #E60084;
+}
+
 input[type="submit"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+  background-color: #E60084;
+  color: #131313;
+  border: none;
+  border-radius: 20px;
+  height: 40px;
+  cursor: pointer;
 }
 
-input[type="submit"] {
-    background-color: #2c09f3;
-    color: #fff;
-    cursor: pointer;
-    transition: background-color 0.3s;
+#agreement {
+  margin-right: 5px;
 }
 
-input[type="submit"]:hover {
-    background-color: #151615;
+#agreement, #agreement-label {
+  display: inline-block;
+  width: auto;
+}
+
+.error-validation {
+  color: #ff1a1a;
+  position: absolute;
+  top: 57px;
+  font-size: 12px;
+}
+
+.template {
+  display: none;
+}
+
+
+#checkout-page {
+  background-color: var(--bg-color);
+  color: var(--primary-color);
+}
+
+/* Message */
+#fade {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+#fade .spinner-border {
+  width: 60px;
+  height: 60px;
+}
+
+.hide {
+  display: none !important;
+}
+
+#message {
+  width: 40%;
+}
+
+.alert.alert-light p {
+  border-bottom: 1px solid #333;
+  padding: 1.2em 0;
+}
+
+/* Steps */
+#order-form-container {
+  padding: 1.5em;
+}
+
+#steps {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border-color);
+  position: relative;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.step i {
+  background-color: var(--secondary-bg-color);
+  width: 45px;
+  height: 45px;
+  line-height: 45px;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 1.2em;
+  margin-bottom: 0.3em;
+}
+
+.step .active {
+  background-color: var(--secondary-color);
+}
+
+.step p {
+  color: var(--text-color);
+}
+
+.line {
+  border-bottom: 1px solid var(--border-color);
+  position: absolute;
+  top: 22.5px;
+  width: 90%;
+  left: 5%;
+  z-index: -1;
 }
 
 /* Estilos do rodapé */
 .footer {
-    background-color: #000000; /* Cor de fundo do rodapé */
-    color: #ffffff; /* Cor do texto */
-    padding: 40px 0; /* Espaçamento no topo e na base */
-    position: relative;
-    bottom: 0;
-    width: 100%;
+  background-color: #131313; /* Cor de fundo do rodapé */
+  color: #ffffff; /* Cor do texto */
+  padding: 40px 0; /* Espaçamento no topo e na base */
+  font-family:'Times New Roman', Times, serif;
+  position: relative;
+  bottom: 0;
+  width: 100%;
 }
 
 .footer-container {
-    display: flex;
-    justify-content: space-around; /* Distribui os itens de forma equilibrada */
-    max-width: 1200px;
-    margin: 0 auto; /* Centraliza o conteúdo */
+  display: flex;
+  justify-content: space-around; /* Distribui os itens de forma equilibrada */
+  max-width: 1200px;
+  margin: 0 auto; /* Centraliza o conteúdo */
 }
 
 .footer-section {
-    flex: 1; /* Cada seção ocupa o mesmo espaço */
-    padding: 0 20px; /* Espaçamento interno de cada seção */
+  flex: 1; /* Cada seção ocupa o mesmo espaço */
+  padding: 0 20px; /* Espaçamento interno de cada seção */
 }
 
 .footer-section h3 {
-    margin-bottom: 20px; /* Espaçamento abaixo dos títulos */
+  margin-bottom: 20px; /* Espaçamento abaixo dos títulos */
 }
 
 .footer-section p, .footer-section ul {
-    margin: 0;
-    font-size: 20px;
+  margin: 0;
+  font-size: 20px;
 }
 
 .footer-section ul {
-    list-style: none;
-    padding: 0;
+  list-style: none;
+  padding: 0;
 }
 
 .footer-section ul li {
-    margin-bottom: 10px; /* Espaçamento entre os itens */
+  margin-bottom: 10px; /* Espaçamento entre os itens */
 }
 
 .footer-section ul li a {
-    color: #ffffff;
-    text-decoration: none;
+  color: #ffffff;
+  text-decoration: none;
 }
 
 .footer-section ul li a:hover {
-    text-decoration: underline; /* Sublinhar no hover */
+  text-decoration: underline; /* Sublinhar no hover */
 }
 
 .footer-bottom {
-    text-align: center;
-    margin-top: 20px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Linha superior fina */
-    padding-top: 20px;
-    font-size: 14px;
+  text-align: center;
+  margin-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1); /* Linha superior fina */
+  padding-top: 20px;
+  font-size: 14px;
 }
-
 /* Responsividade */
 @media (max-width: 768px) {
-    .menu ul {
-        flex-direction: column;
-        align-items: center;
-    }
+  .menu ul {
+      flex-direction: column;
+      align-items: center;
+  }
 
-    .menu ul li a {
-        padding: 15px;
-        width: 100%; /* Links ocupam toda a largura da tela */
-        text-align: center; /* Centraliza o texto nos links */
-    }
+  .menu ul li a {
+      padding: 15px;
+      width: 100%; /* Links ocupam toda a largura da tela */
+      text-align: center; /* Centraliza o texto nos links */
+  }
 }
