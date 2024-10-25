@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pixel Store.</title>
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="../pages/css/home.css">
 </head>
 <body>
 
@@ -12,67 +12,69 @@
     <!-- Menu Horizontal -->
     <nav class="menu">
         <!-- Adicionando a logo -->
-        <img src="imagens/PIXEL LOGO.jpg" alt="Logo do site" class="logo">
+        <img src="../imagens/PIXEL LOGO.jpg" alt="Logo do site" class="logo">
 
         <ul>
-            <li><a href="index.html">Inicio</a></li>
+            <li><a href="home.html">Inicio</a></li>
             <li><a href="produtos.html">Produtos</a></li>
             <li><a href="hardware.html">Hardware</a></li>
             <li><a href="software.html">Software</a></li>
             <li><a href="jogos.html">Jogos</a></li>
         </ul>
         <a href="login.html"><button class="login-button">Login</button></a>
-        <a href="carrinho.html"><button class="cart-button"><img src="imagens/carrinho preto.jpg" alt="Carrinho"></button></a>
+        <a href="carrinho.html"><button class="cart-button"><img src="../imagens/carrinho preto.jpg" alt="Carrinho"></button></a>
     </nav>
     </header>
 
- <!-- Imagem com Cantos Arredondados -->
- <div class="rounded-image-container">
-    <img src="imagens/banner com jogos 2.jpg" alt="Imagem Arredondada">
+ <!-- Vídeo abaixo do menu -->
+ <div class="video-container">
+    <video autoplay muted loop>
+        <source src="/imagens/videoplayback (1).mp4" type="video/mp4">
+        Seu navegador não suporta vídeos.
+    </video>
+    <div class="overlay"></div> <!-- Overlay opcional -->
 </div>
-<br><br>
-    <h1>Pixel Store</h1>
-    <br>
-<p1>As marcas mais recomendadas do mercado!</p1>
- <!-- Container dos Cards -->
+
+<br>
+
+<!-- CARDS -->
 <div class="card-container">
-    <!-- Row 1 -->
-    <div class="card-row">
-        <!-- Card 1 -->
-        <div class="product-card">
-            <h3>CORSAIR</h3>
-            <img src="imagens/corsair imagens.jpeg" alt="Produto 1">
-            <p>Descrição do Produto 1. Descrição do Produto 1. Descrição do Produto 1.</p>
-            <button>Comprar</button>
-        </div>
+    <div class="card">
+        <img src="/imagens/ea fc 25 2.jpeg" alt="Imagem do Card 1">
+        <h3>FIFA 25</h3>
+        <p>Explore o mundo do futebol de uma maneira espetacular.</p>
+        <button>Ver Mais</button>
+    </div>
 
-        <!-- Card 2 -->
-        <div class="product-card">
-            <h3>INTEL</h3>
-            <img src="imagens/intel core.jpg" alt="Produto 2">
-            <p>Descrição do Produto 2. Descrição do Produto 2. Descrição do Produto 2.</p>
-            <button>Comprar</button>
-        </div>
+    <div class="card">
+        <img src="/imagens/spotify.jpeg" alt="Imagem do Card 2">
+        <h3>Spotify</h3>
+        <p>Todos os sentimentos que você quiser na palma da mão.</p>
+        <button>Ver Mais</button>
+    </div>
 
-        <!-- Card 3 -->
-        <div class="product-card">
-            <h3>LOGITECH G</h3>
-            <img src="imagens/logitech imagens.png" alt="Produto 3">
-            <p>Descrição do Produto 3. Descrição do Produto 3. Descrição do Produto 3.</p>
-            <button>Comprar</button>
-        </div>
+    <div class="card">
+        <img src="/imagens/the last of us.jpeg" alt="Imagem do Card 3">
+        <h3>The Last Of Us</h3>
+        <p>Uma obra prima dos games e muitas emoções feita em pixels</p>
+        <button>Ver Mais</button>
+    </div>
 
-        <!-- Card 4 -->
-        <div class="product-card">
-            <h3>KINGSTON</h3>
-            <img src="imagens/kingston logo.png" alt="Produto 4">
-            <p>Descrição do Produto 4. Descrição do Produto 4. Descrição do Produto 4.</p>
-            <button>Comprar</button>
-        </div>
+    <div class="card">
+        <img src="/imagens/Placa de vídeo.png" alt="Imagem do Card 4">
+        <h3>RTX 3090</h3>
+        <p>O poder de uma placa de video como voce nunca viu!</p>
+        <button>Ver Mais</button>
+    </div>
+
+    <div class="card">
+        <img src="/imagens/spiderman.jpeg" alt="Imagem do Card 5">
+        <h3>SpiderMan</h3>
+        <p>Experiencia disponivel exclusivamente nas plataformas Ps5 e Ps4.</p>
+        <button>Ver Mais</button>
     </div>
 </div>
-
-</div>
+<br><br><br><br><br>
 <!-- Rodapé -->
 <footer class="footer">
     <div class="footer-container">
