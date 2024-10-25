@@ -174,16 +174,9 @@ body {
     margin: 0 auto; /* Centraliza o contêiner */
 }
 
-@keyframes rgb-cards {
-    0% { background-color: rgb(190, 2, 2); } /* Vermelho */
-    25% { background-color: rgb(0, 0, 0); } /* Verde */
-    50% { background-color: rgba(219, 9, 9, 0.76); } /* Azul */
-    75% { background-color: rgb(0, 0, 0); } /* Amarelo */
-    100% { background-color: rgb(199, 4, 30); } /* Magenta */
-}
 
 .card {
-    background-color: #fff;
+    background-color: #d6d6d6;
     width: 250px; /* Ajusta a largura do card */
     padding: 20px;
     border-radius: 10px;
@@ -191,6 +184,12 @@ body {
     text-align: center;
     animation: rgb-cards 3s infinite; /* Aplica a animação RGB */
     transition: background-color 0.5s ease;
+}
+
+/* Animação de hover */
+.card:hover {
+    transform: scale(1.05); /* Aumenta o tamanho em 5% */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Intensifica a sombra */
 }
 
 .card img {
@@ -203,31 +202,76 @@ body {
 .card h3 {
     font-size: 20px;
     margin: 15px 0;
-    color: white;
+    color: #333333;
 }
 
 .card p {
     font-size: 19px;
-    color: #ffffff;
+    color: #333333;
 }
 
 .card button {
     padding: 10px 15px;
-    background-color: #ffffff;
-    color: rgb(0, 0, 0);
+    background-color: #000000;
+    color: rgb(255, 255, 255);
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
 
 .card button:hover {
-    background-color: #f55c04;
+    background-color: #0414f5;
 }
 
+.about-us-container {
+    padding: 40px 20px;
+    background-color: #131313;
+    color: white;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about-us-container h2 {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.about-us-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.about-card {
+    background-color: #353535;
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 350px;
+    box-shadow: 0 4px 8px rgba(231, 3, 3, 0.2);
+    transition: transform 0.3s;
+}
+
+.about-card:hover {
+    transform: translateY(-5px);
+}
+
+.about-card h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.about-card p {
+    font-size: 16px;
+    color: #ddd;
+    line-height: 1.5;
+}
 
 /* Estilos do rodapé */
 .footer {
-    background-color: #000000; /* Cor de fundo do rodapé */
+    background-color: #131313; /* Cor de fundo do rodapé */
     color: #ffffff; /* Cor do texto */
     padding: 40px 0; /* Espaçamento no topo e na base */
     font-family:'Times New Roman', Times, serif;
