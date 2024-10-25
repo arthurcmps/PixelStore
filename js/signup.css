@@ -1,0 +1,147 @@
+document.getElementById("register-form").addEventListener("submit", function(event) {
+    event.preventDefault();
+  
+    const email = document.getElementById("email").value;
+    const nome = document.getElementById("name").value;
+    const sobrenome = document.getElementById("lastname").value;
+    const senha = document.getElementById("senha").value;
+    const confirmacaoSenha = document.getElementById("passwordconfirmation").value;
+    const termosAceitos = document.getElementById("agreement").checked;
+  
+    if (!email || !nome || !sobrenome || !senha || !confirmacaoSenha) {
+        alert("Por favor, preencha todos os campos obrigatórios.");
+        return;
+    }
+  
+    if (senha !== confirmacaoSenha) {
+        alert("As senhas não coincidem.");
+        return;
+    }
+  
+    if (!termosAceitos) {
+        alert("Você deve aceitar os termos de uso.");
+        return;
+    }
+  
+    this.submit();
+  });
+  
+  const addressForm = document.querySelector("#address-form");
+  const cepInput = document.querySelector("#cep");
+  const addressInput = document.querySelector("#address");
+  const cityInput = document.querySelector("#city");
+  const neighborhoodInput = document.querySelector("#neighborhood");
+  const regionInput = document.querySelector("#region");
+  const formInputs = document.querySelectorAll("[data-input]");
+  const closeButton = document.querySelector("#close-message");
+  
+  // Validate CEP Input
+  cepInput.addEventListener("keypress", (e) => {
+  const onlyNumbers = /[0-9]|\./;
+  const key = String.fromCharCode(e.keyCode);
+  
+  if (!onlyNumbers.test(key)) {
+    e.preventDefault();
+  }
+  });
+  
+  // Evento para buscar endereço
+  cepInput.addEventListener("keyup", (e) => {
+  const inputValue = e.target.value;
+  if (inputValue.length === 8) {
+    getAddress(inputValue);
+  }
+  });
+  
+  // Obter endereço da API ViaCEP
+  // Função para obter o endereço da API ViaCEP
+  const getAddress = async (cep) => {
+    try {
+      toggleLoader(); // Exibe o loader enquanto a API está sendo consultada
+      cepInput.blur(); // Remove o foco do campo de CEP
+  
+      const apiUrl = `https://viacep.com.br/ws/${cep}/json/`;
+      const response = await fetch(apiUrl);
+  
+      // Verifique se a resposta foi bem-sucedida
+      if (!response.ok) {
+        throw new Error("Erro ao consultar a API.");
+      }
+  
+      const data = await response.json();
+  
+      // Verifica se o CEP é inválido
+      if (data.erro) {
+        // Desativa os campos se o CEP for inválido
+        if (!addressInput.hasAttribute("disabled")) {
+          toggleDisabled();
+        }
+  
+        addressForm.reset(); // Limpa o formulário
+        toggleLoader(); // Esconde o loader
+        toggleMessage("CEP Inválido, tente novamente."); // Exibe a mensagem de erro
+        return; // Para a execução da função
+      }
+  
+      // Ativa os campos se o CEP for válido
+      if (addressInput.value === "") {
+        toggleDisabled();
+      }
+  
+      // Preenche os campos do formulário com os dados retornados pela API
+      addressInput.value = data.logradouro;
+      cityInput.value = data.localidade;
+      neighborhoodInput.value = data.bairro;
+      regionInput.value = data.uf;
+  
+      toggleLoader(); // Esconde o loader após carregar os dados
+    } catch (error) {
+      toggleLoader(); // Esconde o loader em caso de erro
+      toggleMessage("CEP Inválido, tente novamente.");
+      console.error(error);
+    }
+  };
+  
+  
+  // Desabilitar inputs
+  const toggleDisabled = () => {
+  if (regionInput && regionInput.hasAttribute("disabled")) {
+    formInputs.forEach((input) => {
+      input.removeAttribute("disabled");
+    });
+  } else {
+    formInputs.forEach((input) => {
+      input.setAttribute("disabled", "disabled");
+    });
+  }
+  };
+  
+  // Mostrar ou esconder loader
+  const toggleLoader = () => {
+  const fadeElement = document.querySelector("#fade");
+  const loaderElement = document.querySelector("#loader");
+  
+  fadeElement.classList.toggle("hide");
+  loaderElement.classList.toggle("hide");
+  };
+  
+  // Mostrar ou esconder mensagem
+  const toggleMessage = (msg) => {
+  const fadeElement = document.querySelector("#fade");
+  const messageElement = document.querySelector("#message");
+  const messageTextElement = document.querySelector("#message p");
+  
+  if (messageTextElement) {
+    messageTextElement.innerText = msg;
+  }
+  
+  fadeElement.classList.toggle("hide");
+  messageElement.classList.toggle("hide");
+  };
+  
+  // Fechar mensagem
+  if (closeButton) {
+  closeButton.addEventListener("click", () => toggleMessage());
+  }
+  
+  
