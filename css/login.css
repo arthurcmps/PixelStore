@@ -1,44 +1,46 @@
-/* Menu */
-
+/* Reset básico */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-@keyframes rgb-colors-menu {
-    0% { color: rgb(255, 255, 255); }
-    33% { color: rgb(4, 255, 4); }
-    66% { color: rgb(0, 153, 255); }
-    100% { color: rgb(255, 174, 0); }
-}
-
-/* Estilo da página de Login */
+/* BACKGROUND */
 body {
-    margin: 0;
-    padding: 0;
-    height: 100vh; /* Garante que o fundo cubra a tela inteira */
-    background-color: rgb(27, 27, 27);
+    background: #131313; /* Cor de fundo padrão */
     overflow-x: hidden; /* Impede a barra de rolagem horizontal */
 }
 
+/* Estilizando a logo */
+.logo {
+    width: 70px; /* Dimensão da logo */
+    height: 70px; /* Mantém proporção circular */
+    border-radius: 50%; /* Deixa a imagem redonda */
+    object-fit: cover; /* Garante que a imagem se ajuste ao contorno */
+    margin: 0 30px; /* Espaçamento entre logo e menu */
+    float: left; /* Faz com que a logo fique à esquerda do menu */
+}
+
+/*MENU*/
+
 .menu {
-    background-color: black;
-    width: 100%; /* Largura total */
-    padding: 10px 0; /* Padding vertical para espaçamento interno */
-    overflow: hidden; /* Garante que o conteúdo não se sobreponha */
+    width: 100%;
+    background-color: #131313;
+    padding: 10px 0;
+    overflow: hidden;
+    position: relative;
+    border-bottom: 2px solid white; /* Linha branca fixa */
 }
 
 .menu ul {
     list-style-type: none;
     display: flex;
-    justify-content: center; /* Centraliza os itens do menu */
-    margin: 0;
+    justify-content: flex-start; /* Alinha os itens do menu ao início */
+    padding: 0; /* Remove o padding */
 }
 
 .menu ul li {
-    margin: 0;
-    padding: 15px 20px;
+    padding: 10px 15px; /* Ajuste o padding conforme necessário */
 }
 
 .menu ul li a {
@@ -48,47 +50,94 @@ body {
     color: #ffffff; /* Cor do texto */
     font-size: 20px;
     transition: background-color 0.3s ease, color 0.3s ease;
-    animation: rgb-colors-menu 3s infinite; /* Animação de mudança de cor */
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
-}
-
-.menu ul li a:hover {
-    background-color: rgb(146, 143, 145); /* Cor de fundo laranja no hover */ /* Cor de fundo laranja no hover */
-    color: #ffffff;
-}
-
-.menu ul li::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 5px; /* Altura da linha */
-    top: 94px; /* Ajuste a posição da linha para um pouco abaixo do menu */
-    left: -100%; /* A linha começa fora do item */
-    background: linear-gradient(90deg, red, orange, yellow, green, blue, purple);
-    animation: moveLineMenu 3s linear infinite, changeColorMenu 6s linear infinite;
-}
-
-/* Animação de movimento da linha */
-@keyframes moveLineMenu {
-    0% {
-        left: -100%;
-    }
-    100% {
-        left: 100%;
-    }
+    font-family: 'Lucida Sans', sans-serif;
 }
 
 /* Animação de mudança de cor */
-@keyframes changeColorMenu {
+@keyframes rgb-hover {
+    0% { color: rgb(255, 0, 0); }
+    20% { color: rgb(255, 127, 0); }
+    40% { color: rgb(255, 255, 0); }
+    60% { color: rgb(0, 255, 0); }
+    80% { color: rgb(0, 0, 255); }
+    100% { color: rgb(255, 0, 255); }
+}
+
+.menu ul li a:hover {
+    background-color: rgb(32, 32, 32); /* Cor de fundo no hover */
+    color: rgb(255, 255, 255); /* Cor do texto no hover */
+    animation: rgb-hover 1s infinite; /* Animação no hover */
+    text-shadow: 0 0 5px rgb(255, 0, 0), 0 0 10px rgb(0, 255, 0), 0 0 15px rgb(0, 0, 255); /* Sombra de texto RGB */
+}
+
+/* Linha animada opcional */
+.menu::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px; /* Espessura da linha */
+    background-color: white;
+    animation: slide 3s infinite ease-in-out; /* Animação da linha */
+}
+
+@keyframes slide {
     0% {
-        background: linear-gradient(90deg, red, orange, yellow, green, blue, purple);
+        transform: translateX(-100%);
     }
     50% {
-        background: linear-gradient(90deg, purple, blue, green, yellow, orange, red);
+        transform: translateX(0);
     }
     100% {
-        background: linear-gradient(90deg, red, orange, yellow, green, blue, purple);
+        transform: translateX(100%);
     }
+}
+
+/* Botão de Login */
+.login-button {
+    background-color: #090dec;
+    color: #ffffff;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 105px;
+    cursor: pointer;
+    font-size: 16px;
+    position: absolute;
+    right: 20px; /* Espaçamento ajustado para o botão de login */
+    top: 20px; /* Mantém o espaçamento no topo */
+}
+
+.login-button:hover {
+    background-color: #f55c04;
+}
+
+/* Botão de Carrinho */
+.cart-button {
+    background-color: transparent; /* Fundo transparente */
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    position: absolute;
+    right: 110px; /* Espaçamento ajustado para o botão de carrinho */
+    top: 20px;
+}
+
+.cart-button img {
+    width: 40px; /* Tamanho do ícone do carrinho */
+    height: 30px; /* Tamanho do ícone do carrinho */
+}
+
+.cart-button:hover img {
+    filter: brightness(0.8); /* Efeito de escurecimento ao passar o mouse */
+}
+
+/* TÍTULO */
+@keyframes rgb-colors {
+    20% { color: rgb(255, 0, 0); }
+    10% { color: rgb(0, 247, 0); }
+    66% { color: rgb(255, 0, 221); }
+    100% { color: rgb(255, 174, 0); }
 }
 
 /* Espaçamento entre o menu e o formulário de login */
@@ -190,9 +239,10 @@ a.creat-login:hover {
 
 /* Estilos do rodapé */
 .footer {
-    background-color: #000000; /* Cor de fundo do rodapé */
+    background-color: #131313; /* Cor de fundo do rodapé */
     color: #ffffff; /* Cor do texto */
     padding: 40px 0; /* Espaçamento no topo e na base */
+    font-family:'Times New Roman', Times, serif;
     position: relative;
     bottom: 0;
     width: 100%;
@@ -244,7 +294,6 @@ a.creat-login:hover {
     padding-top: 20px;
     font-size: 14px;
 }
-
 /* Responsividade */
 @media (max-width: 768px) {
     .menu ul {
