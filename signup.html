@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../pages/css/signup.css">
+    <title>Login Pixel</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+    crossorigin="anonymous"/>
+</head>
+
+<body>
+   <!-- Menu Horizontal -->
+   <nav class="menu">
+    <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="produtos.html">Produtos</a></li>
+            <li><a href="hardware.html">Hardware</a></li>
+            <li><a href="software.html">Software</a></li>
+            <li><a href="jogos.html">Jogos</a></li>
+    </ul>
+</nav>
+  <div id="main-container">
+    <h1>Cadastre-se para acessar o sistema</h1>
+    <form id="register-form" action="../pages/php/processa_registro.php" method="POST">
+      <div class="full-box">
+        <label for="email">E-mail</label>
+        <input type="email" name="email" id="email" placeholder="Digite seu e-mail" data-min-length="2" data-email-validate required>
+      </div>
+      <div class="half-box spacing">
+          <label for="nome">Nome</label>
+          <input type="text" name="nome" id="nome" placeholder="Digite seu nome" data-required data-min-length="3" data-max-length="16" required>
+      </div>
+      <div class="half-box">
+          <label for="sobrenome">Sobrenome</label>
+          <input type="text" name="sobrenome" id="sobrenome" placeholder="Digite seu sobrenome" data-required data-only-letters required>
+      </div>
+      <div class="half-box spacing">
+
+    <div id="fade" class="hide">
+      <div id="loader" class="spinner-border text-info hide" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <div id="message" class="hide">
+        <div class="alert alert-light" role="alert">
+          <h4>Mensagem:</h4>
+          <p>CEP INVÁLIDO</p>
+          <button id="close-message" type="button" class="btn btn-secondary">
+            Fechar
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="order-form-container" class="container p-6 my-md-4 px-md-0">
+    
+      <div id="form-header">
+  
+      <form id="address-form">
+        <div class="row mb-3">
+          <div class="form-floating">
+            <input
+              type="text"
+              class="form-control shadow-none"
+              id="cep"
+              name="cep"
+              placeholder="Digite o seu CEP"
+              maxlength="8"
+              minlength="8"
+              required
+            />
+            <label for="cep">Digite o seu CEP</label>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-12 col-sm-6 mb-3 mb-md-0 form-floating">
+            <input
+              type="text"
+              class="form-control shadow-none"
+              id="rua"
+              name="rua"
+              placeholder="Rua"
+              disabled
+              required
+              data-input
+            />
+            <label for="rua">Rua</label>
+          </div>
+          <div class="col-12 col-sm-6 form-floating">
+            <input
+              type="text"
+              class="form-control shadow-none"
+              id="numero"
+              name="numero"
+              placeholder="Digite o número da residência"
+              disabled
+              required
+              data-input
+            />
+            <label for="numero">Digite o número da residência</label>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-12 col-sm-6 mb-3 mb-md-0 form-floating">
+            <input
+              type="text"
+              class="form-control shadow-none"
+              id="complemento"
+              name="complemento"
+              placeholder="Digite o complemento"
+              disabled
+              data-input
+            />
+            <label for="complemento">Digite o complemento</label>
+          </div>
+          <div class="col-12 col-sm-6 form-floating">
+            <input
+              type="text"
+              class="form-control shadow-none"
+              id="bairro"
+              name="bairro"
+              placeholder="Bairro"
+              disabled
+              required
+              data-input
+            />
+            <label for="bairro">Bairro</label>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-12 col-sm-6 mb-3 mb-md-0 form-floating">
+            <input
+              type="text"
+              class="form-control shadow-none"
+              id="cidade"
+              name="cidade"
+              placeholder="Cidade"
+              disabled
+              required
+              data-input
+            />
+            <label for="cidade">Cidade</label>
+          </div>
+          <div class="col-12 col-sm-6 mb-3">
+            <select
+              class="form-select shadow-none"
+              id="estado"
+              disabled
+              required
+              data-input
+            >
+              <option selected>Estado</option>
+              <option value="AC">Acre</option>
+              <option value="AL">Alagoas</option>
+              <option value="AP">Amapá</option>
+              <option value="AM">Amazonas</option>
+              <option value="BA">Bahia</option>
+              <option value="CE">Ceará</option>
+              <option value="DF">Distrito Federal</option>
+              <option value="ES">Espírito Santo</option>
+              <option value="GO">Goiás</option>
+              <option value="MA">Maranhão</option>
+              <option value="MT">Mato Grosso</option>
+              <option value="MS">Mato Grosso do Sul</option>
+              <option value="MG">Minas Gerais</option>
+              <option value="PA">Pará</option>
+              <option value="PB">Paraíba</option>
+              <option value="PR">Paraná</option>
+              <option value="PE">Pernambuco</option>
+              <option value="PI">Piauí</option>
+              <option value="RJ">Rio de Janeiro</option>
+              <option value="RN">Rio Grande do Norte</option>
+              <option value="RS">Rio Grande do Sul</option>
+              <option value="RO">Rondônia</option>
+              <option value="RR">Roraima</option>
+              <option value="SC">Santa Catarina</option>
+              <option value="SP">São Paulo</option>
+              <option value="SE">Sergipe</option>
+              <option value="TO">Tocantins</option>
+            </select>
+          </div>
+        </div>
+      
+        <div class="d-flex justify-content-end">      
+
+        <label for="senha">Senha</label>
+        <input type="password" name="senha" id="senha" placeholder="Digite sua senha" data-password-validate data-required>
+      </div>
+      <div class="half-box">
+        <label for="passconfirmation">Confirmação de senha</label>
+        <input type="password" name="passconfirmation" id="passwordconfirmation" placeholder="Digite novamente sua senha" data-equal="password">
+      </div>
+      <div>
+        <input type="checkbox" name="termos_aceitos" id="termos_aceitos">
+        <label for="termos_aceitos" id="termos_aceitos">Eu li e aceito os <a href="#">termos de uso</a></label>
+      </div>
+      <div class="full-box">
+        <input id="btn-submit" type="submit" value="Registrar">
+      </div>
+    </form>
+  </div>
+  <p class="error-validation template"></p>
+  <script src="../pages/js/signup.js"></script>
+</body>
+
+</html>
