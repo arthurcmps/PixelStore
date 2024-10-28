@@ -19,8 +19,7 @@ function atualizarCarrinho(){
     let total = 0;
 
     carrinho.forEach(produto => {carrinhoDiv.innerHTML +='<p>${produto.nome} - Quantidade: ${produto.quantidade} - Preço: R$ ${produto.preco * produto.quantidade}</p>
-        <button onclick = "removeCarrinho(${produto.id})">Remover</button>
-        ';
+        <button onclick = "removeCarrinho(${produto.id})">Remover</button>';
         total += produto.preco * produto.quantidade;
     })
 
