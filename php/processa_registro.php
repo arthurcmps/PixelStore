@@ -1,9 +1,10 @@
 <?php
 // 1. Conectar ao banco de dados MySQL
-$host = 'localhost';
-$dbname = 'cadastro_usuario';
-$username = 'root';
-$password = '';
+$host = 'sql10.freedatabase.com';
+$dbname = 'sql10740735';
+$username = 'sql10740735';
+$password = 'XAaQLQeJG9';
+$port = 3306;
 
 try {
     $conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
