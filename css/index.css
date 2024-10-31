@@ -176,7 +176,7 @@ body {
 
 
 .card {
-    background-color: #d6d6d6;
+    background-color: #909090;
     width: 250px; /* Ajusta a largura do card */
     padding: 20px;
     border-radius: 10px;
@@ -202,12 +202,12 @@ body {
 .card h3 {
     font-size: 20px;
     margin: 15px 0;
-    color: #333333;
+    color: #000000;
 }
 
 .card p {
     font-size: 19px;
-    color: #333333;
+    color: #000000;
 }
 
 .card button {
