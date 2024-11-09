@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/senha.css">
+    <link rel="stylesheet" href="/css/senha.css">
     <title>Esqueceu Senha</title>
 </head>
 
@@ -26,17 +26,18 @@
 <br><br><br><br><br><br><br>
 <body>
 
-    <main>
-        <section class="forgot-password">
-            <h1>Esqueceu sua senha?</h1>
-            <p>Insira seu e-mail abaixo para redefinir sua senha.</p>
-            <form action="forgot_password.php" method="post">
-                <label for="email">Digite seu e-mail:</label>
-                <input type="email" name="email" id="email" required>
-                <input type="submit" value="Enviar link de redefinição">
+    <div class="main-container">
+        <img src="imagens/guarda chuva japão.jpeg" alt="Imagem de Recuperação" class="side-image">
+        <div class="container">
+            <h2>Recuperar Senha</h2>
+            <p>Insira seu e-mail para redefinir sua senha</p>
+            <form action="php/recuperar_senha.php" method="POST">
+                <input type="email" name="email" placeholder="Digite seu e-mail" required>
+                <button type="submit">Enviar</button>
             </form>
-        </section>
-    </main>
+            <a href="login.html" class="voltar-login">Voltar ao Login</a>
+        </div>
+    </div>>
 
 </body>
 <br><br><br><br><br><br><br><br>
@@ -54,7 +55,7 @@
                 <li><a href="./produtos.html">Produtos</a></li>
                 <li><a href="./hardware.html">Hardware</a></li>
                 <li><a href="./software.html">Software</a></li>
-                <li><a href="./perifericos.html">Perifericos</a></li>
+                <li><a href="./jogos.html">Jogos</a></li>
             </ul>
         </div>
         <div class="footer-section">
