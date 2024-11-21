@@ -1,40 +1,46 @@
 <?php
+// Exibe erros para depuração (apagar em produção)
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+
 // 1. Conectar ao banco de dados MySQL
 $host = 'localhost';
-$dbname = 'db_pixelstore';
+$dbname = 'cadastro_usuario';
 $username = 'root';
 $password = '';
 
 try {
-    $conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
+    $conn = new PDO("mysql:host=$host;dbname=$dbname; $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    echo "Conexão realizada com sucesso!";
+    echo "Conexão realizada com sucesso!<br>";
 } catch (PDOException $e) {
     die("Erro na conexão com o banco de dados: " . $e->getMessage());
 }
 
 // 2. Capturar os dados do formulário
-// Certifique-se de que os dados estão chegando do formulário corretamente
-$email = isset($_POST['email']) ? $_POST['email'] : null;
-$nome = isset($_POST['nome']) ? $_POST['nome'] : null;
-$sobrenome = isset($_POST['sobrenome']) ? $_POST['sobrenome'] : null;
-$cep = isset($_POST['cep']) ? $_POST['cep'] : null;
-$rua = isset($_POST['rua']) ? $_POST['rua'] : null;
-$numero = isset($_POST['numero']) ? $_POST['numero'] : null;
-$complemento = isset($_POST['complemento']) ? $_POST['complemento'] : null;
-$bairro = isset($_POST['bairro']) ? $_POST['bairro'] : null;
-$cidade = isset($_POST['cidade']) ? $_POST['cidade'] : null;
-$estado = isset($_POST['estado']) ? $_POST['estado'] : null;
-$senha = isset($_POST['senha']) ? $_POST['senha'] : null;
-$termos_aceitos = isset($_POST['termos_aceitos']) ? $_POST['termos_aceitos'] : null;
+$email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
+$nome = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_STRING);
+$sobrenome = filter_input(INPUT_POST, 'sobrenome', FILTER_SANITIZE_STRING);
+$cep = filter_input(INPUT_POST, 'cep', FILTER_SANITIZE_STRING);
+$rua = filter_input(INPUT_POST, 'rua', FILTER_SANITIZE_STRING);
+$numero = filter_input(INPUT_POST, 'numero', FILTER_SANITIZE_STRING);
+$complemento = filter_input(INPUT_POST, 'complemento', FILTER_SANITIZE_STRING);
+$bairro = filter_input(INPUT_POST, 'bairro', FILTER_SANITIZE_STRING);
+$cidade = filter_input(INPUT_POST, 'cidade', FILTER_SANITIZE_STRING);
+$estado = filter_input(INPUT_POST, 'estado', FILTER_SANITIZE_STRING);
+$senha = filter_input(INPUT_POST, 'senha', FILTER_SANITIZE_STRING);
+$termos_aceitos = isset($_POST['termos_aceitos']) ? 1 : 0; // Checkbox retorna 1 se marcado
 
 // Verificar se todos os campos obrigatórios foram preenchidos
 if (empty($email) || empty($nome) || empty($senha) || empty($termos_aceitos) || empty($cep) || empty($rua) || empty($numero) || empty($bairro) || empty($cidade) || empty($estado)) {
     die('Erro: Todos os campos obrigatórios devem ser preenchidos.');
 }
 
-// 3. Inserir os dados no banco de dados
-$sql = "INSERT INTO usuarios (email, nome, sobrenome, cep, rua, numero, complemento, bairro, cidade, estado, senha, termos_aceitos)
+// 3. Criptografar a senha
+$senhaHash = password_hash($senha, PASSWORD_DEFAULT);
+
+// 4. Inserir os dados no banco de dados
+$sql = "INSERT INTO usuarios (email, nome, sobrenome, cep, rua, numero, complemento, bairro, cidade, estado, senha, termos_aceitos) 
         VALUES (:email, :nome, :sobrenome, :cep, :rua, :numero, :complemento, :bairro, :cidade, :estado, :senha, :termos_aceitos)";
 $stmt = $conn->prepare($sql);
 
@@ -48,8 +54,8 @@ $stmt->bindParam(':complemento', $complemento);
 $stmt->bindParam(':bairro', $bairro);
 $stmt->bindParam(':cidade', $cidade);
 $stmt->bindParam(':estado', $estado);
-$stmt->bindParam(':senha', $senha);
-$stmt->bindParam(':termos_aceitos', $termos_aceitos);
+$stmt->bindParam(':senha', $senhaHash); // Salva a senha criptografada
+$stmt->bindParam(':termos_aceitos', $termos_aceitos, PDO::PARAM_INT);
 
 try {
     if ($stmt->execute()) {
@@ -58,6 +64,6 @@ try {
         echo "Erro ao registrar o usuário.";
     }
 } catch (PDOException $e) {
-    echo "Erro: " . $e->getMessage();
+    echo "Erro ao registrar: " . $e->getMessage();
 }
 ?>
