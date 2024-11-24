@@ -10,7 +10,7 @@ $username = 'root';
 $password = '';
 
 try {
-    $conn = new PDO("mysql:host=$host;dbname=$dbname; $username, $password);
+    $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     echo "Conexão realizada com sucesso!<br>";
 } catch (PDOException $e) {
@@ -19,22 +19,18 @@ try {
 
 // 2. Capturar os dados do formulário
 $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
-$nome = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_STRING);
-$sobrenome = filter_input(INPUT_POST, 'sobrenome', FILTER_SANITIZE_STRING);
-$cep = filter_input(INPUT_POST, 'cep', FILTER_SANITIZE_STRING);
-$rua = filter_input(INPUT_POST, 'rua', FILTER_SANITIZE_STRING);
-$numero = filter_input(INPUT_POST, 'numero', FILTER_SANITIZE_STRING);
-$complemento = filter_input(INPUT_POST, 'complemento', FILTER_SANITIZE_STRING);
-$bairro = filter_input(INPUT_POST, 'bairro', FILTER_SANITIZE_STRING);
-$cidade = filter_input(INPUT_POST, 'cidade', FILTER_SANITIZE_STRING);
-$estado = filter_input(INPUT_POST, 'estado', FILTER_SANITIZE_STRING);
-$senha = filter_input(INPUT_POST, 'senha', FILTER_SANITIZE_STRING);
-$termos_aceitos = isset($_POST['termos_aceitos']) ? 1 : 0; // Checkbox retorna 1 se marcado
+$nome = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+$sobrenome = filter_input(INPUT_POST, 'sobrenome', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+$cep = filter_input(INPUT_POST, 'cep', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+$rua = filter_input(INPUT_POST, 'rua', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+$numero = filter_input(INPUT_POST, 'numero', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+$complemento = filter_input(INPUT_POST, 'complemento', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+$bairro = filter_input(INPUT_POST, 'bairro', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+$cidade = filter_input(INPUT_POST, 'cidade', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+$estado = filter_input(INPUT_POST, 'estado', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+$senha = filter_input(INPUT_POST, 'senha', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
-// Verificar se todos os campos obrigatórios foram preenchidos
-if (empty($email) || empty($nome) || empty($senha) || empty($termos_aceitos) || empty($cep) || empty($rua) || empty($numero) || empty($bairro) || empty($cidade) || empty($estado)) {
-    die('Erro: Todos os campos obrigatórios devem ser preenchidos.');
-}
+$termos_aceitos = isset($_POST['termos_aceitos']) ? 1 : 0; // Checkbox retorna 1 se marcado
 
 // 3. Criptografar a senha
 $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
