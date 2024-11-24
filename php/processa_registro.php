@@ -4,14 +4,10 @@ $dbname = 'cadastro_usuario';
 $username = 'root';
 $password = '';
 
-try {
     // Criar conexão com PDO
     $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    echo "Conexão realizada com sucesso!<br>";
-} catch (PDOException $e) {
-    die("Erro na conexão com o banco de dados: " . $e->getMessage());
-}
+
 
 // Obter dados do formulário
 $nome = htmlspecialchars($_POST['nome']);
@@ -38,7 +34,9 @@ try {
     $stmt->bindParam(':termos_aceitos', $termos_aceitos, PDO::PARAM_INT);
 
     if ($stmt->execute()) {
-        echo "Registro inserido com sucesso!";
+            // Redireciona para a página de login após o registro
+            header('Location: ../login.php  ');
+            exit; // Garante que o script pare após o redirecionamento
     } else {
         echo "Erro ao inserir registro.";
     }
