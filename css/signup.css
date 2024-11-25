@@ -9,7 +9,7 @@ background{
   padding: 10px 0;
   overflow: hidden;
   position: relative;
-  border-bottom: 2px solid rgb(247, 247, 247); /* Linha branca fixa */
+  border-bottom: 2px solid rgb(0, 0, 0); /* Linha branca fixa */
 }
 
 .menu ul {
@@ -45,7 +45,7 @@ background{
 
 .menu ul li a:hover {
   background-color: rgb(0, 0, 0); /* Cor de fundo no hover */
-  color: rgb(255, 255, 255); /* Cor do texto no hover */
+  color: rgb(0, 0, 0); /* Cor do texto no hover */
   animation: rgb-hover 1s infinite; /* Animação no hover */
   text-shadow: 0 0 5px rgb(255, 0, 0), 0 0 10px rgb(0, 255, 0), 0 0 15px rgb(0, 0, 255); /* Sombra de texto RGB */
 }
@@ -93,7 +93,7 @@ background{
   padding: 0;
   box-sizing: border-box;
   font-family: Helvetica, sans-serif;
-  color: #f0f0f0;
+  color: #e4e4e4;
   border: none;
 }
 
@@ -156,7 +156,8 @@ label {
 }
 
 input {
-  border-bottom: 2px solid #323232;
+  color: #000000; /* Texto dos campos será preto */
+  border-bottom: 2px solid #000000;
   padding: 10px;
   font-size: .9rem;
   margin-bottom: 40px;
@@ -164,7 +165,9 @@ input {
 
 input:focus {
   border-color: #E60084;
+  color: #000000; /* Garante que o texto continue preto ao focar */
 }
+
 
 input[type="submit"] {
   background-color: #E60084;
@@ -229,7 +232,7 @@ input[type="submit"] {
 }
 
 .alert.alert-light p {
-  border-bottom: 1px solid #333;
+  border-bottom: 1px solid #f50000;
   padding: 1.2em 0;
 }
 
@@ -268,7 +271,7 @@ input[type="submit"] {
 }
 
 .step p {
-  color: var(--text-color);
+  color: black;
 }
 
 .line {
