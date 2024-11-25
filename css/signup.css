@@ -1,12 +1,15 @@
 /*MENU*/
+background{
+  color: blue;
+}
 
 .menu {
   width: 100%;
-  background-color: #131313;
+  background-color: #000000;
   padding: 10px 0;
   overflow: hidden;
   position: relative;
-  border-bottom: 2px solid white; /* Linha branca fixa */
+  border-bottom: 2px solid rgb(247, 247, 247); /* Linha branca fixa */
 }
 
 .menu ul {
@@ -41,7 +44,7 @@
 }
 
 .menu ul li a:hover {
-  background-color: rgb(32, 32, 32); /* Cor de fundo no hover */
+  background-color: rgb(0, 0, 0); /* Cor de fundo no hover */
   color: rgb(255, 255, 255); /* Cor do texto no hover */
   animation: rgb-hover 1s infinite; /* Animação no hover */
   text-shadow: 0 0 5px rgb(255, 0, 0), 0 0 10px rgb(0, 255, 0), 0 0 15px rgb(0, 0, 255); /* Sombra de texto RGB */
@@ -55,7 +58,7 @@
   left: 0;
   width: 100%;
   height: 2px; /* Espessura da linha */
-  background-color: white;
+  background-color: rgb(0, 0, 0);
   animation: slide 3s infinite ease-in-out; /* Animação da linha */
 }
 
@@ -90,7 +93,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: Helvetica, sans-serif;
-  color: #000000;
+  color: #f0f0f0;
   border: none;
 }
 
@@ -107,6 +110,7 @@ a {
 body {
   background-image: url('../img/bg-register-page.jpg');
   background-size: cover;
+  background-color: black;
   background-position-y: -150px;
 }
 
@@ -115,7 +119,7 @@ body {
   width: 500px;
   margin-left: auto;
   margin-right: auto;
-  background-color: #ffffff;
+  background-color: #333333;
   border-radius: 10px;
   padding: 25px;
 }
@@ -276,63 +280,6 @@ input[type="submit"] {
   z-index: -1;
 }
 
-/* Estilos do rodapé */
-.footer {
-  background-color: #131313; /* Cor de fundo do rodapé */
-  color: #ffffff; /* Cor do texto */
-  padding: 40px 0; /* Espaçamento no topo e na base */
-  font-family:'Times New Roman', Times, serif;
-  position: relative;
-  bottom: 0;
-  width: 100%;
-}
-
-.footer-container {
-  display: flex;
-  justify-content: space-around; /* Distribui os itens de forma equilibrada */
-  max-width: 1200px;
-  margin: 0 auto; /* Centraliza o conteúdo */
-}
-
-.footer-section {
-  flex: 1; /* Cada seção ocupa o mesmo espaço */
-  padding: 0 20px; /* Espaçamento interno de cada seção */
-}
-
-.footer-section h3 {
-  margin-bottom: 20px; /* Espaçamento abaixo dos títulos */
-}
-
-.footer-section p, .footer-section ul {
-  margin: 0;
-  font-size: 20px;
-}
-
-.footer-section ul {
-  list-style: none;
-  padding: 0;
-}
-
-.footer-section ul li {
-  margin-bottom: 10px; /* Espaçamento entre os itens */
-}
-
-.footer-section ul li a {
-  color: #ffffff;
-  text-decoration: none;
-}
-
-.footer-section ul li a:hover {
-  text-decoration: underline; /* Sublinhar no hover */
-}
-
-.footer-bottom {
-  text-align: center;
-  margin-top: 20px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1); /* Linha superior fina */
-  padding-top: 20px;
-  font-size: 14px;
-}
 /* Responsividade */
 @media (max-width: 768px) {
   .menu ul {

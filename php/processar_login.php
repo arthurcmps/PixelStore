@@ -43,7 +43,7 @@ try {
         ];
 
         // Redirecionar para a página inicial
-        header("Location: index.php");
+        header("Location: dashbord.php");
         exit;
     } else {
         // Credenciais incorretas
