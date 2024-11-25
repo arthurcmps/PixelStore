@@ -38,7 +38,7 @@ unset($_SESSION['login_error']); // Limpa a mensagem após exibir
         </ul>
         
         <!-- Botões de login e carrinho -->
-        <a href="login.html"><button class="login-button">Login</button></a>
+        <a href="login.php"><button class="login-button">Login</button></a>
         <a href="carrinho.html"><button class="cart-button"><img src="../PixelStore /imagens/carrinho preto.jpg" alt="Carrinho"></button></a>
     </nav>
 </header>
