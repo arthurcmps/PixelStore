@@ -140,18 +140,6 @@ body {
   100% { color: rgb(255, 174, 0); }
 }
 
-.video-container {
-  width: 100%;
-  max-height: 600px; /* Limita a altura do vídeo */
-  overflow: hidden;
-  position: relative;
-}
-
-.video-container video {
-  width: 100%;
-  height: auto; /* Altura automática para manter a proporção */
-  object-fit: contain; /* Ajusta o vídeo sem cortá-lo */
-}
 
 /* Ajustando a largura da caixa principal */
 .main-container {

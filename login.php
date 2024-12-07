@@ -1,7 +1,45 @@
 <?php
-session_start(); // Inicia ou continua a sessão
-$error_message = $_SESSION['login_error'] ?? null;
-unset($_SESSION['login_error']); // Limpa a mensagem após exibir
+include('php/conexao.php');
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') { // Garante que o formulário foi enviado via POST
+
+    // Verifica se os campos foram enviados e não estão vazios
+    $email = isset($_POST['email']) ? $_POST['email'] : null;
+    $senha = isset($_POST['senha']) ? $_POST['senha'] : null;
+
+    if (empty($email)) {
+        echo "Preencha seu e-mail";
+    } elseif (empty($senha)) {
+        echo "Preencha sua senha";
+    } else {
+        // Protege contra SQL Injection
+        $email = $mysqli->real_escape_string($email);
+        $senha = $mysqli->real_escape_string($senha);
+
+        // Consulta no banco de dados
+        $sql_code = "SELECT * FROM usuarios WHERE email = '$email' AND senha = '$senha'";
+        $sql_query = $mysqli->query($sql_code) or die("Falha na execução do código SQL: " . $mysqli->error);
+
+        // Verifica se encontrou o usuário
+        if ($sql_query->num_rows == 1) {
+            $usuario = $sql_query->fetch_assoc();
+
+            // Inicia a sessão
+            if (!isset($_SESSION)) {
+                session_start();
+            }
+
+            $_SESSION['id'] = $usuario['id'];
+            $_SESSION['nome'] = $usuario['nome'];
+
+            // Redireciona para o painel
+            header("Location: index.php");
+            exit;
+        } else {
+            echo "Falha ao logar! E-mail ou senha incorretos";
+        }
+    }
+}
 ?>
 
 
@@ -14,13 +52,6 @@ unset($_SESSION['login_error']); // Limpa a mensagem após exibir
     <title>Login Pixel</title>
 </head>
 <body>
-
- <!-- Mensagem de erro -->
- <?php if ($error_message): ?>
-        <div class="error-message" style="color: red; text-align: center;">
-            <?= htmlspecialchars($error_message) ?>
-        </div>
-    <?php endif; ?>
 
    <!-- Cabeçalho -->
    <header>
@@ -51,12 +82,12 @@ unset($_SESSION['login_error']); // Limpa a mensagem após exibir
         <div class="login-container">
             <div class="login-form">
                 <h2>Login</h2>
-                <form action="processar_login.php" method="POST">
+                <form action="" method="POST">
                     <label for="email">Email:</label>
                     <input type="email" id="email" name="email" placeholder="Digite seu email" required>
                     
                     <label for="password">Senha:</label>
-                    <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
+                    <input type="password" name="senha" placeholder="Digite sua senha" required>
     
                     <button type="submit" class="login-btn">Enviar</button>
                     

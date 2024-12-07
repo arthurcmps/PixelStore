@@ -159,8 +159,9 @@ body {
     margin-bottom: 20px; /* Add some margin between rows */
 }
 
-h1{
-    left: 870px;
+h1 {
+    left: 50%;
+    transform: translateX(-50%);
     top: 110px;
     position: absolute;
     font-size: 50px;
@@ -169,7 +170,6 @@ h1{
     font-family: Georgia, 'Times New Roman', Times, serif;
     animation: rgb-colors 3s infinite; /* Aplica o efeito de troca de cores */
 }
-
 /* Estilo de cada Card */
 .product-card {
     background-color: #464646;

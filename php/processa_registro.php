@@ -9,7 +9,7 @@ $password = '';
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 
-// Obter dados do formulário
+// Obter dados do formulário    
 $nome = htmlspecialchars($_POST['nome']);
 $sobrenome = htmlspecialchars($_POST['sobrenome']);
 $email = htmlspecialchars($_POST['email']);
