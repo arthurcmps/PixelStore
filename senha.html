@@ -32,8 +32,10 @@
             <h2>Recuperar Senha</h2>
             <p>Insira seu e-mail para redefinir sua senha</p>
 
-            <form action="php/recuperar_senha.php" method="POST">
+            <form action="php/alterar_senha.php" method="POST">
                 <input type="email" name="email" placeholder="Digite seu e-mail" required>
+                <input type="password" name="senha_atual" placeholder="Digite Sua Senha Atual" required>
+                <input type="password" name="nova_senha" placeholder="Digite sua nova Senha" required>
                 <button type="submit">Enviar</button>
             </form>
             <a href="login.php" class="voltar-login">Voltar ao Login</a>

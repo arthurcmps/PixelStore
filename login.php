@@ -1,5 +1,5 @@
 <?php
-include('php/conexao.php');
+include('php/conexao.php'); // Incluindo o arquivo de conexão
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') { // Garante que o formulário foi enviado via POST
 
@@ -12,17 +12,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') { // Garante que o formulário foi en
     } elseif (empty($senha)) {
         echo "Preencha sua senha";
     } else {
-        // Protege contra SQL Injection
-        $email = $mysqli->real_escape_string($email);
-        $senha = $mysqli->real_escape_string($senha);
-
-        // Consulta no banco de dados
-        $sql_code = "SELECT * FROM usuarios WHERE email = '$email' AND senha = '$senha'";
-        $sql_query = $mysqli->query($sql_code) or die("Falha na execução do código SQL: " . $mysqli->error);
+        // Protege contra SQL Injection (usando PDO e declarações preparadas)
+        $query = "SELECT * FROM usuarios WHERE email = :email AND senha = :senha";
+        $stmt = $conn->prepare($query);  // Usando a conexão PDO
+        $stmt->bindParam(':email', $email);
+        $stmt->bindParam(':senha', $senha);
+        $stmt->execute();
 
         // Verifica se encontrou o usuário
-        if ($sql_query->num_rows == 1) {
-            $usuario = $sql_query->fetch_assoc();
+        if ($stmt->rowCount() == 1) {
+            $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
 
             // Inicia a sessão
             if (!isset($_SESSION)) {

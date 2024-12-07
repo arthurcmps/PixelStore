@@ -178,7 +178,9 @@ p {
   margin-bottom: 25px;
 }
 
-form input[type="email"] {
+/* Ajuste para os inputs de senha */
+form input[type="email"],
+form input[type="password"] {
   width: 100%;
   padding: 12px;
   margin-bottom: 20px;
@@ -187,6 +189,7 @@ form input[type="email"] {
   font-size: 1em;
 }
 
+/* Outras estilizações do botão e do link */
 form button {
   width: 100%;
   padding: 12px;
