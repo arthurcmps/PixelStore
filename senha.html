@@ -32,17 +32,20 @@
             <h2>Recuperar Senha</h2>
             <p>Insira seu e-mail para redefinir sua senha</p>
 
-            <form action="php/alterar_senha.php" method="POST">
-                <input type="email" name="email" placeholder="Digite seu e-mail" required>
-                <input type="password" name="senha_atual" placeholder="Digite Sua Senha Atual" required>
-                <input type="password" name="nova_senha" placeholder="Digite sua nova Senha" required>
+            <form id="senhaForm" action="php/alterar_senha.php" method="POST">
+                <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
+                <input type="password" id="novaSenha" name="nova_senha" placeholder="Digite sua nova senha" required>
+                <input type="password" id="confirmarSenha" placeholder="Confirme sua nova senha" required>
                 <button type="submit">Enviar</button>
             </form>
+            <p id="mensagemErro" style="color: red; display: none;">As senhas não coincidem. Por favor, tente novamente.</p>
+              
+            
             <a href="login.php" class="voltar-login">Voltar ao Login</a>
 
         </div>
     </div>>
-
+<script src ="js/alterar_senha.js"></script>
 </body>
 <br><br><br><br><br><br><br><br>
 <!-- Rodapé -->

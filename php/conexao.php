@@ -1,7 +1,7 @@
 <?php
 // Dados para conexão com o banco de dados MySQL
 $host = 'localhost'; // ou o IP do seu servidor MySQL
-$dbname = 'login'; // Substitua pelo nome do seu banco de dados
+$dbname = 'cadastro_usuario'; // Substitua pelo nome do seu banco de dados
 $username = 'root'; // Seu nome de usuário do banco de dados
 $password = ''; // Sua senha do banco de dados
 
