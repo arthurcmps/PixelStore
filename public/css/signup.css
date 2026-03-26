@@ -1,7 +1,4 @@
-/* css/signup.css - APENAS ESTILOS DO FORMULÁRIO */
-
 body {
-  /* Se tiver uma imagem de fundo, altere o caminho aqui */
   background-image: url('../imagens/bg-register-page.jpg'); 
   background-size: cover;
   background-color: #131313;
@@ -9,7 +6,6 @@ body {
 
 #main-container {
   width: 550px;
-  /* Margem alta no topo para garantir que o formulário não fica por baixo do menu fixo */
   margin: 140px auto 80px; 
   background-color: #222222;
   border-radius: 12px;
@@ -22,7 +18,7 @@ body {
   text-align: center;
   margin-bottom: 30px;
   font-size: 26px;
-  color: #4CAF50; /* Título em destaque verde */
+  color: #4CAF50;
   position: static;
   transform: none;
   animation: none;
@@ -39,7 +35,7 @@ form {
 }
 
 .half-box {
-  flex: 1 1 47%; /* Metade do espaço com um pequeno desconto para a margem */
+  flex: 1 1 47%; 
 }
 
 label {
@@ -69,11 +65,10 @@ input[type="password"] {
 input[type="text"]:focus,
 input[type="email"]:focus,
 input[type="password"]:focus {
-  border-bottom: 2px solid #4CAF50; /* Sublinhado verde ao clicar */
+  border-bottom: 2px solid #4CAF50;
   background-color: #444;
 }
 
-/* Oculta os placeholders se quiser um visual mais limpo */
 input::placeholder {
   color: #888;
 }

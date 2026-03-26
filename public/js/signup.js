@@ -1,10 +1,9 @@
-// js/signup.js
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
 import { getAuth, createUserWithEmailAndPassword, updateProfile } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
 import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
 
 const firebaseConfig = {
-  apiKey: "SUA_API_KEY_REAL", // Lembre-se de colocar a sua chave real!
+  apiKey: "AIzaSyDCtOs7MltqdcJkwKXaPBUNneFraC4FCmM",
   authDomain: "pixelstore-3b148.firebaseapp.com",
   projectId: "pixelstore-3b148",
   storageBucket: "pixelstore-3b148.firebasestorage.app",

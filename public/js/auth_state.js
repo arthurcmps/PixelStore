@@ -1,12 +1,14 @@
-// js/auth_state.js
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
 import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
 
 const firebaseConfig = {
-  apiKey: "SUA_API_KEY_REAL",
-  authDomain: "SEU_PROJETO.firebaseapp.com",
-  projectId: "SEU_PROJETO",
-  // ... coloque o restante das suas chaves aqui
+  apiKey: "AIzaSyDCtOs7MltqdcJkwKXaPBUNneFraC4FCmM",
+  authDomain: "pixelstore-3b148.firebaseapp.com",
+  projectId: "pixelstore-3b148",
+  storageBucket: "pixelstore-3b148.firebasestorage.app",
+  messagingSenderId: "676043418845",
+  appId: "1:676043418845:web:5c3fd06059f7a0a06d7f34",
+  measurementId: "G-DSPGQR0CBJ"
 };
 
 const app = initializeApp(firebaseConfig);
@@ -20,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (user) {
             // USUÁRIO LOGADO!
             if (loginLink) {
-                loginLink.style.display = 'none'; // Esconde o botão de Login
+                loginLink.style.display = 'none';
 
                 // Cria e injeta o botão de Perfil dinamicamente
                 if (!document.getElementById('btn-perfil')) {
@@ -36,10 +38,10 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             // USUÁRIO NÃO LOGADO!
             if (loginLink) {
-                loginLink.style.display = 'inline-block'; // Garante que o Login aparece
+                loginLink.style.display = 'inline-block'; 
             }
             const perfilLink = document.getElementById('btn-perfil');
-            if (perfilLink) perfilLink.remove(); // Remove o botão de perfil
+            if (perfilLink) perfilLink.remove();
         }
     });
 });

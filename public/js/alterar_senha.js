@@ -1,16 +1,15 @@
-// js/alterar_senha.js
-
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
 import { getAuth, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
 
-// ==========================================
-// COLE AQUI O SEU FIREBASE CONFIG REAL
-// ==========================================
+
 const firebaseConfig = {
-  apiKey: "SUA_API_KEY_REAL",
-  authDomain: "SEU_PROJETO.firebaseapp.com",
-  projectId: "SEU_PROJETO",
-  // ... resto das suas chaves
+  apiKey: "AIzaSyDCtOs7MltqdcJkwKXaPBUNneFraC4FCmM",
+  authDomain: "pixelstore-3b148.firebaseapp.com",
+  projectId: "pixelstore-3b148",
+  storageBucket: "pixelstore-3b148.firebasestorage.app",
+  messagingSenderId: "676043418845",
+  appId: "1:676043418845:web:5c3fd06059f7a0a06d7f34",
+  measurementId: "G-DSPGQR0CBJ"
 };
 
 const app = initializeApp(firebaseConfig);
@@ -33,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
             sendPasswordResetEmail(auth, email)
                 .then(() => {
                     alert("Sucesso! Foi enviado um e-mail de redefinição de senha para a sua caixa de entrada.");
-                    window.location.href = 'login.html'; // Redireciona de volta para o login
+                    window.location.href = 'login.html';
                 })
                 .catch((error) => {
                     console.error("Erro ao enviar e-mail de recuperação:", error);

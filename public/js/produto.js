@@ -1,5 +1,3 @@
-// js/produto.js
-
 // 1. Injeta o CSS da nossa notificação animada diretamente no site
 if (!document.getElementById('estilo-toast')) {
     const style = document.createElement('style');

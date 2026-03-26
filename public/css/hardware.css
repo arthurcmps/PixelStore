@@ -7,18 +7,18 @@
 
 /* BACKGROUND */
 body {
-    background: #131313; /* Cor de fundo padrão */
-    overflow-x: hidden; /* Impede a barra de rolagem horizontal */
+    background: #131313; 
+    overflow-x: hidden; 
 }
 
 /* Estilizando a logo */
 .logo {
-    width: 70px; /* Dimensão da logo */
-    height: 70px; /* Mantém proporção circular */
-    border-radius: 50%; /* Deixa a imagem redonda */
-    object-fit: cover; /* Garante que a imagem se ajuste ao contorno */
-    margin: 0 30px; /* Espaçamento entre logo e menu */
-    float: left; /* Faz com que a logo fique à esquerda do menu */
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 30px;
+    float: left;
 }
 
 /*MENU*/
@@ -29,25 +29,25 @@ body {
     padding: 10px 0;
     overflow: hidden;
     position: relative;
-    border-bottom: 2px solid white; /* Linha branca fixa */
+    border-bottom: 2px solid white;
 }
 
 .menu ul {
     list-style-type: none;
     display: flex;
-    justify-content: flex-start; /* Alinha os itens do menu ao início */
-    padding: 0; /* Remove o padding */
+    justify-content: flex-start;
+    padding: 0; 
 }
 
 .menu ul li {
-    padding: 10px 15px; /* Ajuste o padding conforme necessário */
+    padding: 10px 15px;
 }
 
 .menu ul li a {
     display: block;
     padding: 10px 20px;
     text-decoration: none;
-    color: #ffffff; /* Cor do texto */
+    color: #ffffff;
     font-size: 20px;
     transition: background-color 0.3s ease, color 0.3s ease;
     font-family: 'Lucida Sans', sans-serif;
@@ -64,10 +64,10 @@ body {
 }
 
 .menu ul li a:hover {
-    background-color: rgb(32, 32, 32); /* Cor de fundo no hover */
-    color: rgb(255, 255, 255); /* Cor do texto no hover */
-    animation: rgb-hover 1s infinite; /* Animação no hover */
-    text-shadow: 0 0 5px rgb(255, 0, 0), 0 0 10px rgb(0, 255, 0), 0 0 15px rgb(0, 0, 255); /* Sombra de texto RGB */
+    background-color: rgb(32, 32, 32);
+    color: rgb(255, 255, 255);
+    animation: rgb-hover 1s infinite;
+    text-shadow: 0 0 5px rgb(255, 0, 0), 0 0 10px rgb(0, 255, 0), 0 0 15px rgb(0, 0, 255);
 }
 
 /* Linha animada opcional */
@@ -77,9 +77,9 @@ body {
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 2px; /* Espessura da linha */
+    height: 2px;
     background-color: white;
-    animation: slide 3s infinite ease-in-out; /* Animação da linha */
+    animation: slide 3s infinite ease-in-out;
 }
 
 @keyframes slide {
@@ -104,8 +104,8 @@ body {
     cursor: pointer;
     font-size: 16px;
     position: absolute;
-    right: 20px; /* Espaçamento ajustado para o botão de login */
-    top: 20px; /* Mantém o espaçamento no topo */
+    right: 20px; 
+    top: 20px;
 }
 
 .login-button:hover {
@@ -114,22 +114,22 @@ body {
 
 /* Botão de Carrinho */
 .cart-button {
-    background-color: transparent; /* Fundo transparente */
+    background-color: transparent;
     border: none;
     padding: 10px;
     cursor: pointer;
     position: absolute;
-    right: 110px; /* Espaçamento ajustado para o botão de carrinho */
+    right: 110px;
     top: 20px;
 }
 
 .cart-button img {
-    width: 40px; /* Tamanho do ícone do carrinho */
-    height: 30px; /* Tamanho do ícone do carrinho */
+    width: 40px;
+    height: 30px;
 }
 
 .cart-button:hover img {
-    filter: brightness(0.8); /* Efeito de escurecimento ao passar o mouse */
+    filter: brightness(0.8);
 }
 
 /* TÍTULO */
@@ -145,18 +145,18 @@ body {
 .card-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px; /* Espaçamento entre os cards */
-    justify-content: center; /* Centraliza os cards */
+    gap: 20px; 
+    justify-content: center;
     padding: 20px;
 }
 
 .card-row {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px; /* Espaçamento entre os cards */
-    justify-content: center; /* Centraliza os cards */
+    gap: 20px;
+    justify-content: center; 
     padding: 20px;
-    margin-bottom: 20px; /* Add some margin between rows */
+    margin-bottom: 20px; 
 }
 
 h1 {
@@ -168,7 +168,7 @@ h1 {
     color: #ffffff;
     text-align: center;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    animation: rgb-colors 3s infinite; /* Aplica o efeito de troca de cores */
+    animation: rgb-colors 3s infinite;
 }
 
 /* Estilo de cada Card */
@@ -177,16 +177,16 @@ h1 {
     padding: 20px;
     border-radius: 8px;
     text-align: center;
-    width: 250px; /* Largura dos cards */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Efeito de sombra */
+    width: 250px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease;
 }
 
 .product-card img {
     width: 100%;
-    height: 180px; /* Altura da imagem */
+    height: 180px;
     border-radius: 5px;
-    object-fit: cover; /* Ajusta a imagem sem distorcer */
+    object-fit: cover;
 }
 
 .product-card h3 {
@@ -202,7 +202,7 @@ h1 {
 }
 
 .product-card button {
-    background-color: #760dee; /* Cor de fundo laranja */
+    background-color: #760dee;
     color: #ffffff;
     border: none;
     padding: 10px 20px;
@@ -212,36 +212,36 @@ h1 {
 }
 
 .product-card button:hover {
-    background-color: #eb5600; /* Cor de fundo laranja escuro no hover */
+    background-color: #eb5600; 
 }
 
 /* Estilo do card ao passar o mouse */
 .product-card:hover {
-    transform: scale(1.05); /* Efeito de zoom no card */
+    transform: scale(1.05);
 }
 
 /* Contêiner da Imagem */
 .rounded-image-container {
-    width: 100%; /* Mantém o contêiner ocupando toda a largura da página */
-    height: 500px; /* Define a altura do contêiner para ser menor */
-    overflow: hidden; /* Garante que a imagem não ultrapasse os limites do contêiner */
-    margin: 0 auto; /* Centraliza o contêiner */
-    border-radius: 0; /* Remove o arredondamento dos cantos */
+    width: 100%; 
+    height: 500px;
+    overflow: hidden; 
+    margin: 0 auto;
+    border-radius: 0; 
 }
 
 /* Estilização da Imagem */
 .rounded-image-container img {
-    width: 100%; /* Faz com que a imagem ocupe toda a largura do contêiner */
-    height: 80%; /* Faz com que a imagem ocupe toda a altura do contêiner */
-    object-fit: cover; /* Ajusta a imagem para cobrir o contêiner sem distorção */
-    display: block; /* Remove espaços em branco abaixo da imagem */
+    width: 100%;
+    height: 80%; 
+    object-fit: cover; 
+    display: block;
 }
 
 /* Estilos do rodapé */
 .footer {
-    background-color: #000000; /* Cor de fundo do rodapé */
-    color: #ffffff; /* Cor do texto */
-    padding: 40px 0; /* Espaçamento no topo e na base */
+    background-color: #000000; 
+    color: #ffffff; 
+    padding: 40px 0; 
     position: relative;
     bottom: 0;
     width: 100%;
@@ -249,18 +249,18 @@ h1 {
 
 .footer-container {
     display: flex;
-    justify-content: space-around; /* Distribui os itens de forma equilibrada */
+    justify-content: space-around;
     max-width: 1200px;
-    margin: 0 auto; /* Centraliza o conteúdo */
+    margin: 0 auto; 
 }
 
 .footer-section {
-    flex: 1; /* Cada seção ocupa o mesmo espaço */
-    padding: 0 20px; /* Espaçamento interno de cada seção */
+    flex: 1; 
+    padding: 0 20px; 
 }
 
 .footer-section h3 {
-    margin-bottom: 20px; /* Espaçamento abaixo dos títulos */
+    margin-bottom: 20px; 
 }
 
 .footer-section p, .footer-section ul {
@@ -274,7 +274,7 @@ h1 {
 }
 
 .footer-section ul li {
-    margin-bottom: 10px; /* Espaçamento entre os itens */
+    margin-bottom: 10px;
 }
 
 .footer-section ul li a {
@@ -283,13 +283,13 @@ h1 {
 }
 
 .footer-section ul li a:hover {
-    text-decoration: underline; /* Sublinhar no hover */
+    text-decoration: underline; 
 }
 
 .footer-bottom {
     text-align: center;
     margin-top: 20px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Linha superior fina */
+    border-top: 1px solid rgba(255, 255, 255, 0.1); 
     padding-top: 20px;
     font-size: 14px;
 }
@@ -303,7 +303,7 @@ h1 {
 
     .menu ul li a {
         padding: 15px;
-        width: 100%; /* Links ocupam toda a largura da tela */
-        text-align: center; /* Centraliza o texto nos links */
+        width: 100%; 
+        text-align: center; 
     }
 }

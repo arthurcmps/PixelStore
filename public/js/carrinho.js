@@ -15,7 +15,7 @@ function exibirCarrinho() {
     // Se o carrinho estiver vazio
     if (carrinho.length === 0) {
         divCarrinho.innerHTML = '<p class="empty-cart-msg">O seu carrinho está vazio. Vamos às compras?</p>';
-        if(btnCheckout) btnCheckout.style.display = 'none'; // Esconde o botão de finalizar
+        if(btnCheckout) btnCheckout.style.display = 'none'; 
         return;
     }
 
@@ -54,8 +54,6 @@ window.removerDoCarrinho = function(index) {
     localStorage.setItem('carrinho', JSON.stringify(carrinho)); 
     exibirCarrinho(); 
 };
-
-// js/carrinho.js
 
 function finalizarCompra() {
     let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
