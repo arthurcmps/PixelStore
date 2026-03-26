@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,44 +8,45 @@
 </head>
 <body>
 
-   <!-- Cabeçalho -->
     <header id="meu-cabecalho"></header>
 
-    </nav>
     <br><br><br><br><br><br><br>
-
     <h1>DIGITE SEU EMAIL E SENHA</h1>
-    <!--LOGIN-->
-        <div class="login-container">
-            <div class="login-form">
-                <h2>Login</h2>
-                <form action="" method="POST">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" placeholder="Digite seu email" required>
-                    
-                    <label for="password">Senha:</label>
-                    <input type="password" name="senha" placeholder="Digite sua senha" required>
-    
-                    <button type="submit" class="login-btn">Enviar</button>
 
-                    <button type="button" id="btn-google" style="background-color: #db4437; color: white; padding: 10px; border: none; cursor: pointer; margin-top: 10px; width: 100%; font-weight: bold;">Entrar com o Google</button>
-                    
-                    <a href="senha.html" class="forgot-password">Esqueceu sua senha?</a>
-                    <br>
-                    <a href="signup.html" class="creat-login">Criar conta</a>
-                </form>
-            </div>
-            <div class="login-image">
-                <img src="imagens/banner com jogos 2.jpg" alt="Login Image">
-            </div>
+    <div class="login-container">
+        <div class="login-form">
+            <h2>Login</h2>
+            <form id="login-form">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Digite seu email" required>
+                
+                <label for="senha">Senha:</label>
+                <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
+                
+                <p id="mensagemErro" style="color: red; display: none; margin-bottom: 10px;"></p>
+
+                <button type="submit" class="login-btn">Enviar</button>
+
+                <button type="button" id="btn-google" style="background-color: #db4437; color: white; padding: 10px; border: none; cursor: pointer; margin-top: 10px; width: 100%; font-weight: bold;">Entrar com o Google</button>
+                
+                <a href="senha.html" class="forgot-password">Esqueceu sua senha?</a>
+                <br>
+                <a href="signup.html" class="creat-login">Criar conta</a>
+            </form>
         </div>
-<br><br><br><br><br><br><br><br>
-        <!-- Rodapé -->
-<footer class="footer" id="meu-rodape"></footer>
+        <div class="login-image">
+            <img src="imagens/banner com jogos 2.jpg" alt="Login Image">
+        </div>
+    </div>
 
-<script type="module" src="js/google_auth.js"></script>
-<script type="module" src="js/auth_state.js"></script>
-<script src="js/layout.js"></script>
+    <br><br><br><br><br><br><br><br>
+    
+    <footer class="footer" id="meu-rodape"></footer>
+
+    <script src="js/layout.js"></script>
+    <script type="module" src="js/auth_state.js"></script>
+    <script type="module" src="js/google_auth.js"></script>
+    <script type="module" src="js/login.js"></script>
 
 </body>
 </html>
