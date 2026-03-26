@@ -1,9 +1,6 @@
-// js/carrinho.js
-
 document.addEventListener('DOMContentLoaded', () => {
     exibirCarrinho();
 
-    // Configura o botão de finalizar compra
     const btnCheckout = document.getElementById('checkout');
     if (btnCheckout) {
         btnCheckout.addEventListener('click', finalizarCompra);
@@ -12,62 +9,81 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function exibirCarrinho() {
     const divCarrinho = document.getElementById('carrinho');
+    const btnCheckout = document.getElementById('checkout');
     const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
 
     // Se o carrinho estiver vazio
     if (carrinho.length === 0) {
-        divCarrinho.innerHTML = '<p style="color: white; font-size: 18px; text-align: center;">O seu carrinho está vazio.</p>';
+        divCarrinho.innerHTML = '<p class="empty-cart-msg">O seu carrinho está vazio. Vamos às compras?</p>';
+        if(btnCheckout) btnCheckout.style.display = 'none'; // Esconde o botão de finalizar
         return;
     }
 
-    // Se tiver itens, cria a lista
-    let conteudoHTML = '<ul style="list-style: none; padding: 0;">';
+    // Se tiver itens, mostra o botão de finalizar
+    if(btnCheckout) btnCheckout.style.display = 'block'; 
+
+    let conteudoHTML = '<ul class="cart-list">';
     let total = 0;
 
     carrinho.forEach((produto, index) => {
-        // Formata o preço para o padrão brasileiro/português (R$ 00,00)
         let precoFormatado = produto.preco.toFixed(2).replace('.', ',');
         
         conteudoHTML += `
-            <li style="color: white; margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #333; padding-bottom: 10px;">
-                <span style="font-size: 18px;">${produto.nome} - R$ ${precoFormatado}</span>
-                <button onclick="removerDoCarrinho(${index})" style="background-color: #ff4c4c; color: white; border: none; padding: 8px 15px; cursor: pointer; border-radius: 5px; font-weight: bold;">Remover</button>
+            <li class="cart-item">
+                <span class="cart-item-name">${produto.nome}</span>
+                <span class="cart-item-price">R$ ${precoFormatado}</span>
+                <button class="remove-btn" onclick="removerDoCarrinho(${index})">Remover</button>
             </li>`;
         total += produto.preco;
     });
 
     conteudoHTML += '</ul>';
     
-    // Adiciona o valor total no final
     let totalFormatado = total.toFixed(2).replace('.', ',');
-    conteudoHTML += `<h2 style="color: #4CAF50; margin-top: 20px; text-align: right;">Total: R$ ${totalFormatado}</h2>`;
+    conteudoHTML += `
+        <div class="cart-total">
+            <h3>Total: <span>R$ ${totalFormatado}</span></h3>
+        </div>`;
 
     divCarrinho.innerHTML = conteudoHTML;
 }
 
-// Função para remover um item específico
 window.removerDoCarrinho = function(index) {
     let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
-    carrinho.splice(index, 1); // Remove o item daquela posição
-    localStorage.setItem('carrinho', JSON.stringify(carrinho)); // Guarda a nova lista
-    exibirCarrinho(); // Recarrega a visualização
+    carrinho.splice(index, 1); 
+    localStorage.setItem('carrinho', JSON.stringify(carrinho)); 
+    exibirCarrinho(); 
 };
 
-// Função para o botão "Finalizar Compra"
+// js/carrinho.js
+
 function finalizarCompra() {
     let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
-    
-    if (carrinho.length === 0) {
-        alert("Adicione produtos ao carrinho antes de finalizar a compra!");
-        return;
-    }
+    if (carrinho.length === 0) return;
 
-    // Simulação de compra bem-sucedida
-    alert("Compra realizada com sucesso! Obrigado por escolher a Pixel Store.");
+    // Seleciona o container principal do carrinho
+    const cartContainer = document.querySelector('.cart-container');
     
-    // Esvazia o carrinho após a compra
+    // Substitui todo o conteúdo do carrinho pela nossa animação de sucesso
+    cartContainer.innerHTML = `
+        <div class="checkout-success">
+            <div class="success-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+            </div>
+            <h2>Compra Finalizada!</h2>
+            <p>Obrigado por escolher a Pixel Store. O seu pedido está a ser processado.</p>
+            <div class="loading-bar"></div>
+        </div>
+    `;
+
+    // Esvazia o carrinho no armazenamento do navegador
     localStorage.removeItem('carrinho'); 
     
-    // Redireciona para a página inicial
-    window.location.href = 'index.html'; 
+    // Aguarda 4 segundos (o tempo da nossa barra de progresso encher) e redireciona
+    setTimeout(() => {
+        window.location.href = 'index.html'; 
+    }, 4000);
 }

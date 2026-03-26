@@ -1,31 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/carrinho.css">
-    <title>Pixel Store</title>
+    <title>Carrinho - Pixel Store</title>
 </head>
 <body>
 
     <header id="meu-cabecalho"></header>
 
-        <br><br><br><br><br><br><br><br><br>
-        <section class="cart">
-            <h2>Seu carrinho</h2>
-            <div id="carrinho">
-                
-            <button id="checkout" class="checkout-btn">Finalizar Compra</button>
-        </section>
+    <main class="cart-container">
+        <h2>Seu Carrinho de Compras</h2>
         
+        <div id="carrinho" class="cart-items-wrapper">
+            </div>
         
-        <br><b><br><br><br><br><br><br><br><br><br><br>
+        <button id="checkout" class="checkout-btn">Finalizar Compra</button>
+    </main>
        
-            <footer class="footer" id="meu-rodape"></footer>
+    <footer class="footer" id="meu-rodape"></footer>
 
-<script src="js/carrinho.js"></script>
-<script src="js/layout.js"></script>
-<script type="module" src="js/auth_state.js"></script>
+    <script src="js/layout.js"></script>
+    <script src="js/carrinho.js"></script>
+    <script type="module" src="js/auth_state.js"></script>
 
 </body>
 </html>
