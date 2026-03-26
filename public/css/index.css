@@ -1,0 +1,341 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BACKGROUND */
+body {
+    background: #131313; /* Cor de fundo padrão */
+    overflow-x: hidden; /* Impede a barra de rolagem horizontal */
+}
+
+/* Estilizando a logo */
+.logo {
+    width: 70px; /* Dimensão da logo */
+    height: 70px; /* Mantém proporção circular */
+    border-radius: 50%; /* Deixa a imagem redonda */
+    object-fit: cover; /* Garante que a imagem se ajuste ao contorno */
+    margin: 0 30px; /* Espaçamento entre logo e menu */
+    float: left; /* Faz com que a logo fique à esquerda do menu */
+}
+
+/*MENU*/
+
+.menu {
+    width: 100%;
+    background-color: #131313;
+    padding: 10px 0;
+    overflow: hidden;
+    position: relative;
+    border-bottom: 2px solid white; /* Linha branca fixa */
+}
+
+.menu ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: flex-start; /* Alinha os itens do menu ao início */
+    padding: 0; /* Remove o padding */
+}
+
+.menu ul li {
+    padding: 10px 15px; /* Ajuste o padding conforme necessário */
+}
+
+.menu ul li a {
+    display: block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #ffffff; /* Cor do texto */
+    font-size: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-family: 'Lucida Sans', sans-serif;
+}
+
+/* Animação de mudança de cor */
+@keyframes rgb-hover {
+    0% { color: rgb(255, 0, 0); }
+    20% { color: rgb(255, 127, 0); }
+    40% { color: rgb(255, 255, 0); }
+    60% { color: rgb(0, 255, 0); }
+    80% { color: rgb(0, 0, 255); }
+    100% { color: rgb(255, 0, 255); }
+}
+
+.menu ul li a:hover {
+    background-color: rgb(32, 32, 32); /* Cor de fundo no hover */
+    color: rgb(255, 255, 255); /* Cor do texto no hover */
+    animation: rgb-hover 1s infinite; /* Animação no hover */
+    text-shadow: 0 0 5px rgb(255, 0, 0), 0 0 10px rgb(0, 255, 0), 0 0 15px rgb(0, 0, 255); /* Sombra de texto RGB */
+}
+
+/* Linha animada opcional */
+.menu::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px; /* Espessura da linha */
+    background-color: white;
+    animation: slide 3s infinite ease-in-out; /* Animação da linha */
+}
+
+@keyframes slide {
+    0% {
+        transform: translateX(-100%);
+    }
+    50% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* Botão de Login */
+.login-button {
+    background-color: #090dec;
+    color: #ffffff;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 105px;
+    cursor: pointer;
+    font-size: 16px;
+    position: absolute;
+    right: 20px; /* Espaçamento ajustado para o botão de login */
+    top: 20px; /* Mantém o espaçamento no topo */
+}
+
+.login-button:hover {
+    background-color: #f55c04;
+}
+
+/* Botão de Carrinho */
+.cart-button {
+    background-color: transparent; /* Fundo transparente */
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    position: absolute;
+    right: 110px; /* Espaçamento ajustado para o botão de carrinho */
+    top: 20px;
+}
+
+.cart-button img {
+    width: 40px; /* Tamanho do ícone do carrinho */
+    height: 30px; /* Tamanho do ícone do carrinho */
+}
+
+.cart-button:hover img {
+    filter: brightness(0.8); /* Efeito de escurecimento ao passar o mouse */
+}
+
+/* TÍTULO */
+@keyframes rgb-colors {
+    20% { color: rgb(255, 0, 0); }
+    10% { color: rgb(0, 247, 0); }
+    66% { color: rgb(255, 0, 221); }
+    100% { color: rgb(255, 174, 0); }
+}
+
+.video-container {
+    width: 100%;
+    max-height: 600px; /* Limita a altura do vídeo */
+    overflow: hidden;
+    position: relative;
+}
+
+.video-container video {
+    width: 100%;
+    height: auto; /* Altura automática para manter a proporção */
+    object-fit: contain; /* Ajusta o vídeo sem cortá-lo */
+}
+
+/* Overlay opcional para melhorar a legibilidade */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* Fundo escuro com transparência */
+}
+
+/* Estilo de cada Card */
+.card-container {
+    display: flex;
+    justify-content: space-between; /* Espaço entre os cards */
+    gap: 20px; /* Aumenta o espaçamento entre os cards */
+    flex-wrap: wrap; /* Permite que os cards quebrem a linha se necessário */
+    padding: 20px; /* Padding ao redor do contêiner de cards */
+    max-width: 1500px; /* Limita a largura total do contêiner */
+    margin: 0 auto; /* Centraliza o contêiner */
+}
+
+
+.card {
+    background-color: #909090;
+    width: 250px; /* Ajusta a largura do card */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    animation: rgb-cards 3s infinite; /* Aplica a animação RGB */
+    transition: background-color 0.5s ease;
+}
+
+/* Animação de hover */
+.card:hover {
+    transform: scale(1.05); /* Aumenta o tamanho em 5% */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Intensifica a sombra */
+}
+
+.card img {
+    width: 100%;
+    height: 200px; /* Define uma altura maior para a imagem */
+    object-fit: cover; /* Garante que a imagem se ajuste ao card sem distorcer */
+    border-radius: 5px;
+}
+
+.card h3 {
+    font-size: 20px;
+    margin: 15px 0;
+    color: #000000;
+}
+
+.card p {
+    font-size: 19px;
+    color: #000000;
+}
+
+.card button {
+    padding: 10px 15px;
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.card button:hover {
+    background-color: #0414f5;
+}
+
+.about-us-container {
+    padding: 40px 20px;
+    background-color: #131313;
+    color: white;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about-us-container h2 {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.about-us-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.about-card {
+    background-color: #353535;
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 350px;
+    box-shadow: 0 4px 8px rgba(231, 3, 3, 0.2);
+    transition: transform 0.3s;
+}
+
+.about-card:hover {
+    transform: translateY(-5px);
+}
+
+.about-card h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.about-card p {
+    font-size: 16px;
+    color: #ddd;
+    line-height: 1.5;
+}
+
+/* Estilos do rodapé */
+.footer {
+    background-color: #131313; /* Cor de fundo do rodapé */
+    color: #ffffff; /* Cor do texto */
+    padding: 40px 0; /* Espaçamento no topo e na base */
+    font-family:'Times New Roman', Times, serif;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around; /* Distribui os itens de forma equilibrada */
+    max-width: 1200px;
+    margin: 0 auto; /* Centraliza o conteúdo */
+}
+
+.footer-section {
+    flex: 1; /* Cada seção ocupa o mesmo espaço */
+    padding: 0 20px; /* Espaçamento interno de cada seção */
+}
+
+.footer-section h3 {
+    margin-bottom: 20px; /* Espaçamento abaixo dos títulos */
+}
+
+.footer-section p, .footer-section ul {
+    margin: 0;
+    font-size: 20px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px; /* Espaçamento entre os itens */
+}
+
+.footer-section ul li a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.footer-section ul li a:hover {
+    text-decoration: underline; /* Sublinhar no hover */
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Linha superior fina */
+    padding-top: 20px;
+    font-size: 14px;
+}
+/* Responsividade */
+@media (max-width: 768px) {
+    .menu ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .menu ul li a {
+        padding: 15px;
+        width: 100%; /* Links ocupam toda a largura da tela */
+        text-align: center; /* Centraliza o texto nos links */
+    }
+}

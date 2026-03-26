@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/produtos.css">
+    <title>Produtos</title>
+</head>
+<body>
+    
+    <header id="meu-cabecalho"></header>
+
+<br><br><br><br>
+    <h1>Produtos</h1>
+
+    <div class="card-container">
+        <!-- Row 1 -->
+        <div class="card-row">
+            <!-- Card 1 -->
+            <div class="product-card">
+                
+                <h3>Fone Bluetooth</h3>
+                <img src="imagens/FONE BLUETOOTH.jpg" alt="Produto 1">
+                <p>Fone De Ouvido Bluetooth Gamer Preto Gold FN-B23 5.3 para áudio de alta qualidade sem atrasos.</p>
+                <p>Preço R$79,90</p>
+                <button onclick="addCarrinho(1, 'Fone De Ouvido Bluetooth Gamer Preto Gold',79.9)">Comprar</button>
+
+            </div>
+    
+            <!-- Card 2 -->
+            <div class="product-card">
+                <h3>Processador Intel Core I9</h3>
+                <img src="imagens/intel core.jpg" alt="Produto 2">
+                <p>Processador Intel Core i9-14900K, 14ª Geração, 6GHz Max Turbo, Cache 36MB, 24 Núcleos.</p>
+                <p>Preço R$459,90</p>
+                <button onclick="addCarrinho(2, 'Processador Intel Core i9-14900K', 459.9)">Comprar</button>
+            </div>
+    
+            <!-- Card 3 -->
+            <div class="product-card">
+                <h3>Microfone QuadCast</h3>
+                <img src="imagens/microfone hyperx.jpg" alt="Produto 3">
+                <p>Base antivibração sensor tap to mute com indicador em Led zero ruido externo.</p>
+                <p>Preço R$635,36</p>
+                <button onclick="addCarrinho(3, 'Microfone QuadCast', 635.63 )">Comprar</button>
+            </div>
+    
+            <!-- Card 4 -->
+            <div class="product-card">
+                <h3>Memoria Midgard 8GB</h3>
+                <img src="imagens/memoria ram.jpg" alt="Produto 4">
+                <p>Memoria Midgard 8GB (1X8GB) DDR4 DIMM 3200MHZ XMP 2.0 CL16 1,35V Para Desktop</p>
+                <p>Preço R$ 370,00</p>
+                <button onclick="addCarrinho(4, 'Memoria Midgard 8GB', 370.00 )">Comprar</button>
+            </div>
+        </div>
+    
+        <!-- Row 2 -->
+        <div class="card-row">
+            <!-- Card 5 -->
+            <div class="product-card">
+                <h3>Teclado HyperX Mars RGB</h3>
+                <img src="imagens/teclado produto 1.jpg" alt="Produto 5">
+                <p>Teclado Mecanico com RGB HyperX Mars sem fio</p>
+                <p>Preço R$ 370,00</p>
+                <button onclick="addCarrinho(5, 'Teclado HyperX Mars RGB', 370.00 )">Comprar</button>
+            </div>
+    
+            <!-- Card 6 -->
+            <div class="product-card">
+                <h3>Monitor Samsung Gamer UltraLed</h3>
+                <img src="imagens/monitor produto 2.jpeg" alt="Produto 6">
+                <p>Monitor Gamer UltraLed Samsung 240hertz com cores Extrafino e com Ajuste de Altura para visibilidade.</p>
+                <p>Preço R$299.00</p>
+                <button onclick="addCarrinho(6, 'Monitor Samsung Gamer UltraLed', 299.00 )">Comprar</button>
+            </div>
+    
+            <!-- Card 7 -->
+            <div class="product-card">
+                <h3>Headset Gamer Ultra Wireless</h3>
+                <img src="imagens/fone produto 3.jpeg" alt="Produto 7">
+                <p>Headset Gamer Redragon Zeus Pro RGB, Surround 7.1, Cabo USB-C Removível, Wireless, c/Microfone, Preto - H510-PRO.</p>
+                <p>Preço R$378,00</p>
+                <button onclick="addCarrinho(7, 'Headset Gamer Redragon Zeus Pro RGB', 378.00 )">Comprar</button>
+
+            </div>
+    
+            <!-- Card 8 -->
+            <div class="product-card">
+                <h3>Mouse Gamer Logitech RGB</h3>
+                <img src="imagens/Mouse gamer produto 4.jpeg" alt="Produto 8">
+                <p>Mouse Gamer Logitech G203 LIGHTSYNC RGB, Efeito de Ondas de Cores, 6 Botões Programáveis e Até 8.000 DPI - Preto All Black</p>
+                <p>Preço R$ 148,03</p>
+                <button onclick="addCarrinho(8, 'Mouse Gamer Logitech G203', 148.03 )">Comprar</button>
+
+            </div>
+        </div>
+    </div>
+    <div class="card-container">
+        <!-- Row 1 -->
+        <div class="card-row">
+            <!-- Card 1 -->
+            <div class="product-card">
+                <h3>MousePad Logitech G</h3>
+                <img src="imagens/mousepad produto 5.jpeg" alt="Produto 1">
+                <p>Mouse Pad de Tecido com Base Antiderrapante Logitech G440 Otimizado para Jogos e com Superfície de Baixo Atrito.</p>
+                <p>Preço 109,99</p>
+                <button onclick="addCarrinho(9, 'Mouse Pad Logitech G440', 109.99 )">Comprar</button>
+            </div>
+    
+            <!-- Card 2 -->
+            <div class="product-card">
+                <h3>iPhone 15</h3>
+                <img src="imagens/iphone produto 6.jpeg" alt="Produto 2">
+                <p>Apple iPhone 15 (128 GB) — Preto Capacidade de armazenamento da memória	128 GB
+                    Tamanho da tela	6,1 Polegadas</p>
+                    <p>Preço R$ 7.000,00</p>
+                <button onclick="addCarrinho(10, 'iPhone 15', 7.000,0 )">Comprar</button>
+            </div>
+    
+            <!-- Card 3 -->
+            <div class="product-card">
+                <h3>Carregador Universal</h3>
+                <img src="imagens/carregador produto 7.jpg" alt="Produto 3">
+                <p>Geonav Carregador Universal Ultra Rápido Duo, 1 X USB-C Power Delivery 20W, 1 X USB Quick Charge 18W, CH20PDQC, Branco.</p>
+                <p>Preço 71,10</p>
+                <button onclick="addCarrinho(11, 'Carregador Universal', 71.10 )">Comprar</button>
+            </div>
+    
+            <!-- Card 4 -->
+            <div class="product-card">
+                <h3>Mibro GS Pro</h3>
+                <img src="imagens/smartwatch produto 8.jpeg" alt="Produto 4">
+                <p>Novo Relogios Masculino Mibro GS Pro, Smartwatch GPS, Bluetooth Calling, duração da bateria de 20 dias, mais de 105 modos esportivos, Relogio Militar.</p>
+                <p>Preço 452,68</p>
+                <button onclick="addCarrinho(12, 'Mibro GS Pro', 452.68 )">Comprar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Imagem com Cantos Arredondados -->
+ <div class="rounded-image-container">
+    <img src="imagens/Gamer Computador.webp" alt="Imagem Arredondada">
+</div>
+
+
+    <!-- Rodapé -->
+<footer class="footer" id="meu-rodape"></footer>
+
+<script src="js/produto.js"></script>
+<script src="js/layout.js"></script>    
+<script type="module" src="js/auth_state.js"></script>
+
+</body>
+</body>
+</html>

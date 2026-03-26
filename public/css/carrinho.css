@@ -1,0 +1,278 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BACKGROUND */
+body {
+    background: #131313; /* Cor de fundo padrão */
+    overflow-x: hidden; /* Impede a barra de rolagem horizontal */
+}
+
+/* Estilizando a logo */
+.logo {
+    width: 70px; /* Dimensão da logo */
+    height: 70px; /* Mantém proporção circular */
+    border-radius: 50%; /* Deixa a imagem redonda */
+    object-fit: cover; /* Garante que a imagem se ajuste ao contorno */
+    margin: 0 30px; /* Espaçamento entre logo e menu */
+    float: left; /* Faz com que a logo fique à esquerda do menu */
+}
+
+/*MENU*/
+
+.menu {
+    width: 100%;
+    background-color: #131313;
+    padding: 10px 0;
+    overflow: hidden;
+    position: relative;
+    border-bottom: 2px solid white; /* Linha branca fixa */
+}
+
+.menu ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: flex-start; /* Alinha os itens do menu ao início */
+    padding: 0; /* Remove o padding */
+}
+
+.menu ul li {
+    padding: 10px 15px; /* Ajuste o padding conforme necessário */
+}
+
+.menu ul li a {
+    display: block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #ffffff; /* Cor do texto */
+    font-size: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-family: 'Lucida Sans', sans-serif;
+}
+
+/* Animação de mudança de cor */
+@keyframes rgb-hover {
+    0% { color: rgb(255, 0, 0); }
+    20% { color: rgb(255, 127, 0); }
+    40% { color: rgb(255, 255, 0); }
+    60% { color: rgb(0, 255, 0); }
+    80% { color: rgb(0, 0, 255); }
+    100% { color: rgb(255, 0, 255); }
+}
+
+.menu ul li a:hover {
+    background-color: rgb(32, 32, 32); /* Cor de fundo no hover */
+    color: rgb(255, 255, 255); /* Cor do texto no hover */
+    animation: rgb-hover 1s infinite; /* Animação no hover */
+    text-shadow: 0 0 5px rgb(255, 0, 0), 0 0 10px rgb(0, 255, 0), 0 0 15px rgb(0, 0, 255); /* Sombra de texto RGB */
+}
+
+/* Linha animada opcional */
+.menu::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px; /* Espessura da linha */
+    background-color: white;
+    animation: slide 3s infinite ease-in-out; /* Animação da linha */
+}
+
+@keyframes slide {
+    0% {
+        transform: translateX(-100%);
+    }
+    50% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* Botão de Login */
+.login-button {
+    background-color: #090dec;
+    color: #ffffff;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 105px;
+    cursor: pointer;
+    font-size: 16px;
+    position: absolute;
+    right: 20px; /* Espaçamento ajustado para o botão de login */
+    top: 20px; /* Mantém o espaçamento no topo */
+}
+
+.login-button:hover {
+    background-color: #f55c04;
+}
+
+/* Botão de Carrinho */
+.cart-button {
+    background-color: #131313; /* Fundo transparente */
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    position: absolute;
+    right: 110px; /* Espaçamento ajustado para o botão de carrinho */
+    top: 20px;
+}
+
+.cart-button img {
+    width: 40px; /* Tamanho do ícone do carrinho */
+    height: 30px; /* Tamanho do ícone do carrinho */
+}
+
+.cart-button:hover img {
+    filter: brightness(0.8); /* Efeito de escurecimento ao passar o mouse */
+}
+
+/* TÍTULO */
+@keyframes rgb-colors {
+    20% { color: rgb(255, 0, 0); }
+    10% { color: rgb(0, 247, 0); }
+    66% { color: rgb(255, 0, 221); }
+    100% { color: rgb(255, 174, 0); }
+}
+
+
+.cart {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: rgb(250, 246, 246);
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.cart-item img {
+    width: 80px;
+    height: auto;
+}
+
+.item-details {
+    flex-grow: 1;
+    margin-left: 20px;
+}
+
+.item-details h2 {
+    margin: 0 0 10px;
+}
+
+.remove-item {
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.remove-item:hover {
+    background-color: #d15400;
+}
+
+.cart-total {
+    text-align: right;
+    margin-top: 20px;
+}
+
+.checkout-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.checkout-btn:hover {
+    background-color: #218838;
+}
+
+
+/* Estilos do rodapé */
+.footer {
+    background-color: #141414; /* Cor de fundo do rodapé */
+    color: #ffffff; /* Cor do texto */
+    padding: 40px 0; /* Espaçamento no topo e na base */
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around; /* Distribui os itens de forma equilibrada */
+    max-width: 1200px;
+    margin: 0 auto; /* Centraliza o conteúdo */
+}
+
+.footer-section {
+    flex: 1; /* Cada seção ocupa o mesmo espaço */
+    padding: 0 20px; /* Espaçamento interno de cada seção */
+}
+
+.footer-section h3 {
+    margin-bottom: 20px; /* Espaçamento abaixo dos títulos */
+}
+
+.footer-section p, .footer-section ul {
+    margin: 0;
+    font-size: 20px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px; /* Espaçamento entre os itens */
+}
+
+.footer-section ul li a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.footer-section ul li a:hover {
+    text-decoration: underline; /* Sublinhar no hover */
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Linha superior fina */
+    padding-top: 20px;
+    font-size: 14px;
+}
+
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .menu ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .menu ul li a {
+        padding: 15px;
+        width: 100%; /* Links ocupam toda a largura da tela */
+        text-align: center; /* Centraliza o texto nos links */
+    }
+}

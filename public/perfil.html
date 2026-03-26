@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Perfil - Pixel Store</title>
+    <link rel="stylesheet" href="css/index.css"> 
+</head>
+<body style="background-color: #131313; color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; font-family: sans-serif;">
+
+    <div style="background-color: rgba(0,0,0,0.8); padding: 40px; border-radius: 10px; border: 2px solid #4CAF50; width: 400px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
+        <h1 style="color: #4CAF50; margin-bottom: 20px;">Meus Dados</h1>
+        
+        <div id="dados-usuario" style="text-align: left; font-size: 18px; line-height: 1.6;">
+            <p style="text-align: center;">Carregando informações do servidor...</p>
+        </div>
+        
+        <div style="margin-top: 30px; display: flex; gap: 15px; justify-content: center;">
+            <a href="index.html">
+                <button style="padding: 10px 20px; background-color: #333; color: white; border: none; cursor: pointer; border-radius: 5px;">Voltar à Loja</button>
+            </a>
+            <button id="btn-logout" style="padding: 10px 20px; background-color: #ff4c4c; color: white; border: none; cursor: pointer; border-radius: 5px; font-weight: bold;">Sair da Conta</button>
+        </div>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+        import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
+        // Importa as funções do Banco de Dados (Firestore)
+        import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
+
+        // COLE A SUA FIREBASE CONFIG REAL AQUI
+        const firebaseConfig = { apiKey: "SUA_API_KEY_REAL", /* ... */ };
+        
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+
+        const divDados = document.getElementById('dados-usuario');
+
+        // Escuta quem está logado
+        onAuthStateChanged(auth, async (user) => {
+            if (user) {
+                try {
+                    // Vai no banco de dados, na coleção 'usuarios', e busca o documento com a ID deste usuário
+                    const docRef = doc(db, "usuarios", user.uid);
+                    const docSnap = await getDoc(docRef);
+
+                    if (docSnap.exists()) {
+                        const dados = docSnap.data(); // Pega os dados brutos
+                        // Injeta no HTML
+                        divDados.innerHTML = `
+                            <p><strong>Nome:</strong> ${dados.nome} ${dados.sobrenome}</p>
+                            <p><strong>E-mail:</strong> ${dados.email}</p>
+                            <p><strong>Termos Aceitos:</strong> ${dados.termos_aceitos ? 'Sim' : 'Não'}</p>
+                        `;
+                    } else {
+                        // Se for login pelo Google, o usuário pode não estar na tabela do Firestore ainda
+                        divDados.innerHTML = `
+                            <p><strong>Nome:</strong> ${user.displayName || 'Usuário do Google'}</p>
+                            <p><strong>E-mail:</strong> ${user.email}</p>
+                        `;
+                    }
+                } catch (error) {
+                    divDados.innerHTML = "<p style='color: red;'>Erro ao carregar dados.</p>";
+                    console.error("Erro do Firestore:", error);
+                }
+            } else {
+                // Se não tiver ninguém logado, expulsa de volta para o login
+                window.location.href = 'login.html';
+            }
+        });
+
+        // Lógica do botão de Sair
+        document.getElementById('btn-logout').addEventListener('click', () => {
+            signOut(auth).then(() => {
+                window.location.href = 'index.html';
+            });
+        });
+    </script>
+</body>
+</html>
